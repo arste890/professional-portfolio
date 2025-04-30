@@ -1,93 +1,106 @@
+/* Reset and base styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background-color: #f8f9fa;
-  color: #333;
+  font-family: "Georgia", serif;
+  background-color: #fefdf9;
+  color: #2d2d2d;
+  line-height: 1.6;
 }
 
+/* Layout helpers */
 .container {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 }
 
+/* Header */
+header {
+  background-color: #f3efe9;
+  border-bottom: 1px solid #dcd6ce;
+}
+
 .header-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
 }
 
-.profile-photo img {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+.portrait img {
+  border-radius: 8px;
+  width: 200px;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.bio h1 {
-  font-size: 2rem;
-  margin: 0;
+.intro h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
-.bio p {
+.intro p {
+  margin: 0.5rem 0;
   font-size: 1.1rem;
-  line-height: 1.6;
 }
 
 .linkedin {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #0072b1;
+  padding: 0.5rem 1.2rem;
+  background-color: #0e76a8;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .linkedin:hover {
-  background-color: #005582;
+  background-color: #095a82;
 }
 
-main {
-  background-color: #ffffff;
-  padding: 2rem 0;
-}
-
-.repos h2 {
+/* Main */
+main h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid #c7beb1;
+  padding-bottom: 0.3rem;
   margin-bottom: 0.5rem;
 }
 
-#repo-list {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+.subtle {
+  color: #666;
+  margin-bottom: 1.5rem;
 }
 
-.repo {
-  background-color: #e9ecef;
+.repo-card {
+  background-color: #f7f4ee;
+  border: 1px solid #d8d2c4;
   padding: 1rem;
-  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  border-radius: 6px;
 }
 
-.repo h3 {
+.repo-card h3 {
   margin: 0 0 0.5rem;
 }
 
-.repo a {
-  color: #007acc;
+.repo-card a {
+  color: #2d3e50;
   text-decoration: none;
+  font-weight: bold;
 }
 
-.repo a:hover {
+.repo-card a:hover {
   text-decoration: underline;
 }
 
+/* Footer */
 footer {
+  background-color: #f3efe9;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #555;
+  border-top: 1px solid #dcd6ce;
 }
