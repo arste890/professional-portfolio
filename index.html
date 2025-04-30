@@ -3,45 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aristea's GitHub Portfolio</title>
+  <title>Alec R. Stevens – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" />
 </head>
 <body>
   <header>
     <div class="container header-container">
-      <div class="profile-photo">
-        <!-- Replace `portrait.jpg` with your actual image file -->
-        <img src="portrait.jpg" alt="Professional portrait of Aristea" />
+      <div class="portrait">
+        <img src="https://github.com/arste890/arste890.github.io/blob/main/Headshot.jpg?raw=true" alt="Alec R. Stevens Portrait">
       </div>
-      <div class="bio">
-        <h1>Aristea E.</h1>
+      <div class="intro">
+        <h1>Alec R. Stevens</h1>
         <p>
-          Student at the University of Utah<br />
-          Honors B.S. in Biochemistry | B.M. in Piano<br />
-          Minors: Biology, Chemistry, French
+          Student at the University of Utah<br>
+          Honors Bachelor of Science in Biochemistry<br>
+          Bachelor of Music in Piano<br>
+          Minors in Biology, Chemistry, and French
         </p>
-        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">
-          Connect on LinkedIn
-        </a>
+        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main class="container">
     <section class="repos">
-      <h2>My GitHub Projects</h2>
-      <p>Below are my publicly available repositories on GitHub:</p>
+      <h2>Selected GitHub Projects</h2>
+      <p class="subtle">A curated selection of my public repositories:</p>
       <div id="repo-list">Loading repositories...</div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Aristea E. | Built with HTML & CSS</p>
+    <p>© 2025 Alec R. Stevens • Built for professional and academic presentation</p>
   </footer>
 
   <script>
-    // Fetch GitHub repos dynamically
     fetch("https://api.github.com/users/arste890/repos")
       .then(response => response.json())
       .then(data => {
@@ -49,20 +46,19 @@
         repoList.innerHTML = "";
 
         data.forEach(repo => {
-          const repoItem = document.createElement("div");
-          repoItem.className = "repo";
+          const item = document.createElement("div");
+          item.className = "repo-card";
 
-          repoItem.innerHTML = `
+          item.innerHTML = `
             <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
             <p>${repo.description || "No description provided."}</p>
           `;
-
-          repoList.appendChild(repoItem);
+          repoList.appendChild(item);
         });
       })
       .catch(error => {
-        document.getElementById("repo-list").innerText = "Error loading repositories.";
-        console.error("GitHub API error:", error);
+        document.getElementById("repo-list").textContent = "Failed to load repositories.";
+        console.error(error);
       });
   </script>
 </body>
