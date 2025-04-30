@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Base styles for the entire document */
 body {
   margin: 0;
   font-family: "Times New Roman", serif;
@@ -7,14 +7,14 @@ body {
   line-height: 1.8;
 }
 
-/* Layout helpers */
+/* Layout and container styles */
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-/* Header */
+/* Header styles, including portrait and introduction */
 header {
   background-color: #f3efe9;
   border-bottom: 1px solid #dcd6ce;
@@ -65,7 +65,40 @@ header {
   color: white;
 }
 
-/* Main */
+/* Navigation menu styles */
+.menu {
+  background-color: #f3efe9;
+  border-top: 1px solid #dcd6ce;
+  border-bottom: 1px solid #dcd6ce;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d2d2d;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu a:hover {
+  background-color: #dcd6ce;
+  color: #fff;
+}
+
+/* Main content styles for sections and cards */
 main h2 {
   font-size: 1.8rem;
   border-bottom: 2px solid #c7beb1;
@@ -78,13 +111,12 @@ main h2 {
   margin-bottom: 1.5rem;
 }
 
+/* GitHub project frame */
 .repo-card {
-  background-color: #fff;
-  border: 1px solid #dcd6ce;
-  padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-left: 4px solid #c7beb1;
+  background-color: #f9f7f4;
 }
 
 .repo-card h3 {
@@ -103,7 +135,55 @@ main h2 {
   text-decoration: underline;
 }
 
-/* Footer */
+/* Reverting styles for sections */
+.repos, .recommendations, .experience, .about {
+  background-color: #fff;
+  border: 1px solid #dcd6ce;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.repos h2, .recommendations h2, .experience h2, .about h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d2d2d;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.recommendation, .job {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-left: 4px solid #c7beb1;
+  background-color: #f9f7f4;
+}
+
+/* Unified background color for endorsements */
+.recommendation footer {
+  background-color: transparent; /* Removed the box color difference */
+  font-style: italic;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.job h3 {
+  font-style: italic;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Framed style for textual elements under the 'About Alec' heading */
+.about p {
+  padding: 1rem;
+  border-left: 4px solid #c7beb1;
+  background-color: #f9f7f4;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Footer styles */
 footer {
   background-color: #f3efe9;
   text-align: center;

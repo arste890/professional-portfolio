@@ -8,7 +8,9 @@
   <link rel="icon" href="favicon.ico" />
 </head>
 <body>
+  <!-- Main HTML structure for Alec R. Stevens' portfolio -->
   <header>
+    <!-- Header section with portrait, introduction, and navigation menu -->
     <div class="container header-container">
       <div class="portrait">
         <img src="https://github.com/arste890/arste890.github.io/blob/main/Headshot.jpg?raw=true" alt="Alec R. Stevens Portrait">
@@ -24,16 +26,25 @@
         <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
       </div>
     </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#repos">Projects</a></li>
+        <li><a href="#recommendations">Endorsements</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main class="container">
-    <section class="repos">
+    <!-- Main content sections: Projects, Endorsements, Experience, and About -->
+    <section class="repos" id="repos">
       <h2>Selected GitHub Projects</h2>
       <p class="subtle">A curated selection of my public repositories:</p>
       <div id="repo-list">Loading repositories...</div>
     </section>
 
-    <section class="recommendations">
+    <section class="recommendations" id="recommendations">
       <h2>Professional Endorsements</h2>
       <div class="recommendation">
         <p>
@@ -49,7 +60,7 @@
       </div>
     </section>
 
-    <section class="experience">
+    <section class="experience" id="experience">
       <h2>Professional Experience</h2>
       <div class="job">
         <h3>Researcher</h3>
@@ -71,18 +82,20 @@
       </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
       <h2>About Alec</h2>
-      <p>
-        My long-term aspiration is to enter the field of medicine, integrating compassionate care, interdisciplinary reasoning, and ethical leadership. I am committed to leveraging my dual-degree background in Biological Chemistry and Piano to approach challenges with both analytical precision and creative problem-solving.
-      </p>
-      <p>
-        I aim to contribute to advancements in healthcare by combining my scientific expertise with a deep understanding of the human experience, fostering innovation and empathy in equal measure.
-      </p>
+      <div class="about-text">
+        <p>
+          My long-term aspiration is to enter the field of medicine, integrating compassionate care, interdisciplinary reasoning, and ethical leadership. I am committed to leveraging my dual-degree background in Biological Chemistry and Piano to approach challenges with both analytical precision and creative problem-solving.
+
+          I aim to contribute to advancements in healthcare by combining my scientific expertise with a deep understanding of the human experience, fostering innovation and empathy in equal measure.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
+    <!-- Footer with copyright information -->
     <p>© 2025 Alec R. Stevens • Built for professional and academic presentation</p>
   </footer>
 
