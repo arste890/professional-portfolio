@@ -17,7 +17,7 @@
         <h1>Alec R. Stevens</h1>
         <p>
           Student at the University of Utah<br>
-          Honors Bachelor of Science in Biochemistry<br>
+          Honors Bachelor of Science in Biological Chemistry<br>
           Bachelor of Music in Piano<br>
           Minors in Biology, Chemistry, and French
         </p>
@@ -32,6 +32,54 @@
       <p class="subtle">A curated selection of my public repositories:</p>
       <div id="repo-list">Loading repositories...</div>
     </section>
+
+    <section class="recommendations">
+      <h2>Professional Endorsements</h2>
+      <div class="recommendation">
+        <p>
+          "Alec is a competent, dedicated, and motivated individual. While studying at the University, Alec has excelled academically, achieving an almost perfect grade point average while pursuing an Honors Bachelor of Science in Biological Chemistry and a Bachelor of Music in Piano Pedagogy. Alec is a service-oriented leader, often considering what he can do to assist the organization he is working in and how changes may improve the student experience."
+        </p>
+        <footer>- Liz Leckie, Ph.D., Associate Dean for Undergraduate Student Affairs</footer>
+      </div>
+      <div class="recommendation">
+        <p>
+          "Mr. Stevens has demonstrated remarkable leadership experience, engaging effectively with university administration and collaborating on strategic projects. His commitment to community engagement is evident through participation in outreach events as a College of Science Ambassador, performing benefit concerts, and leading donation drives."
+        </p>
+        <footer>- Vedrana Subotic, Doctor of Music, Professor (Lecturer)</footer>
+      </div>
+    </section>
+
+    <section class="experience">
+      <h2>Professional Experience</h2>
+      <div class="job">
+        <h3>Researcher</h3>
+        <p>
+          As an undergraduate researcher in the Antibiotic Discovery stream at the University of Utah, I contribute to the search for novel antimicrobial compounds by isolating and characterizing soil-derived bacteria using culture-dependent methods. This research involves selective enrichment techniques, high-throughput screening against ESKAPE pathogens, and bioassay-guided fractionation to identify active compounds. Through this experience, I’ve developed hands-on proficiency in microbiology and molecular biology techniques, while contributing to clinically relevant research aimed at combating antibiotic resistance.
+        </p>
+      </div>
+      <div class="job">
+        <h3>Senator</h3>
+        <p>
+          As a Senator in the Associated Students of the University of Utah (ASUU), I represent the College of Fine Arts in the university’s student government. In this role, I advocate for student interests, participate in legislative processes, and help oversee the allocation of college-level funding through the College Student Council. My work includes legislative drafting, event planning, student advocacy, and serving on committees that shape university-wide policy and governance.
+        </p>
+      </div>
+      <div class="job">
+        <h3>Science Ambassador</h3>
+        <p>
+          As a Science Ambassador for the University of Utah’s College of Science, I serve as a representative for prospective and current students, supporting recruitment, outreach, and student engagement efforts. I lead campus tours, mentor first-year and transfer students, and assist with New Student Orientation and themed community initiatives. I also participate in K–12 STEM outreach events and university-sponsored programs that promote science education and community involvement.
+        </p>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>About Alec</h2>
+      <p>
+        My long-term aspiration is to enter the field of medicine, integrating compassionate care, interdisciplinary reasoning, and ethical leadership. I am committed to leveraging my dual-degree background in Biological Chemistry and Piano to approach challenges with both analytical precision and creative problem-solving.
+      </p>
+      <p>
+        I aim to contribute to advancements in healthcare by combining my scientific expertise with a deep understanding of the human experience, fostering innovation and empathy in equal measure.
+      </p>
+    </section>
   </main>
 
   <footer>
@@ -45,16 +93,20 @@
         const repoList = document.getElementById("repo-list");
         repoList.innerHTML = "";
 
-        data.forEach(repo => {
+        // Filter for the SAC repository
+        const sacRepo = data.find(repo => repo.name === "SAC");
+
+        if (sacRepo) {
           const item = document.createElement("div");
           item.className = "repo-card";
 
           item.innerHTML = `
-            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-            <p>${repo.description || "No description provided."}</p>
+            <h3><a href="${sacRepo.html_url}" target="_blank">${sacRepo.name}</a></h3>
           `;
           repoList.appendChild(item);
-        });
+        } else {
+          repoList.textContent = "SAC repository not found.";
+        }
       })
       .catch(error => {
         document.getElementById("repo-list").textContent = "Failed to load repositories.";
