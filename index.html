@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aristea's GitHub Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="profile-photo">
+        <!-- Replace `portrait.jpg` with your actual image file -->
+        <img src="portrait.jpg" alt="Professional portrait of Aristea" />
+      </div>
+      <div class="bio">
+        <h1>Aristea E.</h1>
+        <p>
+          Student at the University of Utah<br />
+          Honors B.S. in Biochemistry | B.M. in Piano<br />
+          Minors: Biology, Chemistry, French
+        </p>
+        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="repos">
+      <h2>My GitHub Projects</h2>
+      <p>Below are my publicly available repositories on GitHub:</p>
+      <div id="repo-list">Loading repositories...</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Aristea E. | Built with HTML & CSS</p>
+  </footer>
+
+  <script>
+    // Fetch GitHub repos dynamically
+    fetch("https://api.github.com/users/arste890/repos")
+      .then(response => response.json())
+      .then(data => {
+        const repoList = document.getElementById("repo-list");
+        repoList.innerHTML = "";
+
+        data.forEach(repo => {
+          const repoItem = document.createElement("div");
+          repoItem.className = "repo";
+
+          repoItem.innerHTML = `
+            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+            <p>${repo.description || "No description provided."}</p>
+          `;
+
+          repoList.appendChild(repoItem);
+        });
+      })
+      .catch(error => {
+        document.getElementById("repo-list").innerText = "Error loading repositories.";
+        console.error("GitHub API error:", error);
+      });
+  </script>
+</body>
+</html>
