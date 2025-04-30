@@ -1,10 +1,10 @@
 /* Reset and base styles */
 body {
   margin: 0;
-  font-family: "Georgia", serif;
-  background-color: #fefdf9;
+  font-family: "Times New Roman", serif;
+  background-color: #faf8f5;
   color: #2d2d2d;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* Layout helpers */
@@ -28,36 +28,41 @@ header {
 }
 
 .portrait img {
-  border-radius: 8px;
-  width: 200px;
-  height: auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* Ensures the image fills the frame */
+  object-position: top; /* Crops the image higher to avoid cutting off the head */
+  border: 5px solid #dcd6ce;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .intro h1 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-style: italic;
   margin-bottom: 0.5rem;
-  font-weight: 600;
 }
 
 .intro p {
+  font-size: 1.2rem;
+  font-style: italic;
   margin: 0.5rem 0;
-  font-size: 1.1rem;
 }
 
 .linkedin {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1.2rem;
-  background-color: #0e76a8;
-  color: white;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #0e76a8;
+  background-color: transparent;
+  color: #0e76a8;
   text-decoration: none;
-  font-size: 1rem;
   border-radius: 4px;
 }
 
 .linkedin:hover {
-  background-color: #095a82;
+  background-color: #0e76a8;
+  color: white;
 }
 
 /* Main */
@@ -74,15 +79,18 @@ main h2 {
 }
 
 .repo-card {
-  background-color: #f7f4ee;
-  border: 1px solid #d8d2c4;
-  padding: 1rem;
-  margin-bottom: 1.2rem;
-  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #dcd6ce;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .repo-card h3 {
-  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .repo-card a {
@@ -100,7 +108,8 @@ footer {
   background-color: #f3efe9;
   text-align: center;
   padding: 1rem;
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 1rem;
+  font-style: italic;
+  color: #333;
   border-top: 1px solid #dcd6ce;
 }
