@@ -468,6 +468,16 @@ footer {
   background: #000000;
 }
 
+/* Force video thumbnail on mobile */
+@media (max-width: 768px) {
+  .media-item video {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
 .media-caption {
   padding: 0.75rem;
   background: #ffffff;
