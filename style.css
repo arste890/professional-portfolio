@@ -50,42 +50,6 @@ header {
   margin: 0.5rem 0;
 }
 
-.intro .subtitle {
-  font-size: 1.1rem;
-  font-style: italic;
-  margin: 0.5rem 0 1rem 0;
-  color: #555;
-}
-
-.contact-info {
-  margin: 1rem 0;
-}
-
-.contact-info p {
-  font-size: 1rem;
-  font-style: normal;
-  line-height: 1.6;
-}
-
-.contact-info a {
-  color: #0e76a8;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
-.skills {
-  margin: 1rem 0;
-}
-
-.skills p {
-  font-size: 1rem;
-  font-style: normal;
-  line-height: 1.6;
-}
-
 .linkedin {
   font-size: 1.1rem;
   padding: 0.6rem 1.4rem;
@@ -172,7 +136,7 @@ main h2 {
 }
 
 /* Reverting styles for sections */
-.repos, .recommendations, .experience, .about, .education {
+.repos, .recommendations, .experience, .about {
   background-color: #fff;
   border: 1px solid #dcd6ce;
   padding: 2rem;
@@ -181,7 +145,7 @@ main h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.repos h2, .recommendations h2, .experience h2, .about h2, .education h2 {
+.repos h2, .recommendations h2, .experience h2, .about h2 {
   font-size: 2rem;
   font-weight: bold;
   color: #2d2d2d;
@@ -189,23 +153,11 @@ main h2 {
   margin-bottom: 1rem;
 }
 
-.recommendation, .job, .degree {
+.recommendation, .job {
   margin-bottom: 1.5rem;
   padding: 1rem;
   border-left: 4px solid #c7beb1;
   background-color: #f9f7f4;
-}
-
-.job-date {
-  font-style: italic;
-  color: #666;
-  font-size: 0.95rem;
-  margin: 0.25rem 0 0.5rem 0;
-}
-
-.degree-info {
-  margin: 0.5rem 0;
-  line-height: 1.6;
 }
 
 /* Unified background color for endorsements */
@@ -285,7 +237,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  .repos, .recommendations, .experience, .about, .education {
+  .repos, .recommendations, .experience, .about {
     padding: 1rem;
   }
 
@@ -293,12 +245,8 @@ footer {
     font-size: 1.2rem;
   }
 
-  .recommendation, .job, .degree {
+  .recommendation, .job {
     padding: 0.5rem;
-  }
-  
-  .contact-info p, .skills p {
-    font-size: 0.9rem;
   }
 
   footer {
