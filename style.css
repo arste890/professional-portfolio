@@ -693,6 +693,8 @@ footer {
   flex-direction: column;
 }
 
+
+
 .modal-media-wrapper {
   display: flex;
   align-items: center;
@@ -886,6 +888,11 @@ footer {
   
   .media-caption h3 {
     font-size: 0.85rem;
+  }
+
+  /* Ensure modal content uses full width on mobile */
+  .modal-content {
+    max-width: 95%;
   }
   
   .media-caption p {

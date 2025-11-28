@@ -186,13 +186,21 @@
     const modalContent = document.getElementById('modalContent');
     const modalClose = document.getElementById('modalClose');
     const mediaItems = document.querySelectorAll('.media-item');
+    let currentMediaIndex = 0;
 
-    mediaItems.forEach(item => {
+    mediaItems.forEach((item, index) => {
       item.addEventListener('click', function() {
-        const type = this.getAttribute('data-type');
-        const src = this.getAttribute('data-src');
-        const title = this.getAttribute('data-title');
-        const description = this.getAttribute('data-description');
+        currentMediaIndex = index;
+        showMediaItem(index);
+      });
+    });
+
+    function showMediaItem(index) {
+      const item = mediaItems[index];
+      const type = item.getAttribute('data-type');
+      const src = item.getAttribute('data-src');
+      const title = item.getAttribute('data-title');
+      const description = item.getAttribute('data-description');
 
         let content = '';
         if (type === 'image') {
@@ -233,13 +241,58 @@
           }
         }
 
-        modalContent.innerHTML = content;
-        modalContent.className = 'modal-content';
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        updateScrollButton();
-      });
-    });
+      modalContent.innerHTML = content;
+      modalContent.className = 'modal-content';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      
+      // Hide hamburger menu when modal is open
+      const hamburger = document.getElementById('hamburger');
+      if (hamburger) {
+        hamburger.classList.add('modal-open');
+      }
+      
+      updateScrollButton();
+    }
+
+
+
+    // Touch/swipe handling for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    modalContent.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    modalContent.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      const minSwipeDistance = 50;
+      
+      // Only register horizontal swipes (ignore vertical scrolling)
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0 && currentMediaIndex > 0) {
+          // Swipe right - go to previous
+          currentMediaIndex--;
+          showMediaItem(currentMediaIndex);
+        } else if (deltaX < 0 && currentMediaIndex < mediaItems.length - 1) {
+          // Swipe left - go to next
+          currentMediaIndex++;
+          showMediaItem(currentMediaIndex);
+        }
+      }
+    }
 
     modalClose.addEventListener('click', closeModal);
     modal.addEventListener('click', function(e) {
@@ -251,14 +304,36 @@
     function closeModal() {
       modal.classList.remove('active');
       document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+      
+      // Restore hamburger menu visibility
+      const hamburger = document.getElementById('hamburger');
+      if (hamburger) {
+        hamburger.classList.remove('modal-open');
+      }
+      
       modalContent.innerHTML = '';
       updateScrollButton();
     }
 
-    // Close modal with Escape key
+    // Keyboard navigation
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          if (currentMediaIndex > 0) {
+            currentMediaIndex--;
+            showMediaItem(currentMediaIndex);
+          }
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          if (currentMediaIndex < mediaItems.length - 1) {
+            currentMediaIndex++;
+            showMediaItem(currentMediaIndex);
+          }
+        }
       }
     });
 
