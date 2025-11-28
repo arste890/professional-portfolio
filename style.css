@@ -524,6 +524,11 @@ main h2 {
   transform: translateY(20px);
 }
 
+/* Hide scroll to top button when any modal is open */
+#scrollToTop.modal-open {
+  display: none !important;
+}
+
 /* Footer styles */
 footer {
   background: #f8f9fa;
