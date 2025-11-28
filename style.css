@@ -236,7 +236,7 @@ main h2 {
 }
 
 /* Reverting styles for sections */
-.repos, .recommendations, .experience, .education, .volunteer, .about, .media {
+.repos, .recommendations, .experience, .education, .volunteer, .about, .media, .not-found {
   background-color: #ffffff;
   border: none;
   padding: 2.5rem;
@@ -246,11 +246,11 @@ main h2 {
   transition: box-shadow 0.3s ease;
 }
 
-.repos:hover, .recommendations:hover, .experience:hover, .volunteer:hover, .about:hover, .media:hover {
+.repos:hover, .recommendations:hover, .experience:hover, .volunteer:hover, .about:hover, .media:hover, .not-found:hover {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
-.repos h2, .recommendations h2, .experience h2, .volunteer h2, .about h2, .media h2 {
+.repos h2, .recommendations h2, .experience h2, .volunteer h2, .about h2, .media h2, .not-found h2 {
   font-size: 2.2rem;
   font-weight: 500;
   color: #1a1a1a;
@@ -468,7 +468,7 @@ main h2 {
 }
 
 /* Framed style for textual elements under the 'About Alec' heading */
-.about p {
+.about p, .not-found p {
   padding: 1.5rem;
   border-left: 3px solid #0077b5;
   background: linear-gradient(to right, #f8f9fa, #ffffff);
@@ -476,6 +476,16 @@ main h2 {
   border-radius: 6px;
   color: #495057;
   line-height: 1.8;
+}
+
+.not-found p a {
+  color: #0077b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.not-found p a:hover {
+  text-decoration: underline;
 }
 
 /* Scroll to top button */
