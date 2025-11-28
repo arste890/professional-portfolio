@@ -153,6 +153,7 @@
         <div class="education-content">
           <h3>High School Diploma <span class="job-date">Aug 2018 - May 2022</span></h3>
           <p class="job-company">Skyline High School</p>
+          <p class="education-award clickable-award" onclick="openAwardModal()"><strong>Skyline Eagles RISE Award</strong></p>
         </div>
       </div>
     </section>
@@ -226,6 +227,16 @@
     </section>
   </main>
 
+  <!-- Award Modal -->
+  <div class="award-modal" id="awardModal">
+    <div class="award-modal-content">
+      <span class="modal-close" onclick="closeAwardModal()">&times;</span>
+      <h3>Skyline Eagles RISE Award</h3>
+      <h4>Award Requirements</h4>
+      <p>"The process to be selected for the Eagles RISE award is a long one. Beginning in January, teachers, administrators, counselors, coaches, and staff select students whom they believe would best represent the award. Unlike other awards in which mathematical equations determine who wins which awards, the Eagles RISE awards are far more intense. A committee meets with each nominating teacher, interviewing them on why that student should win the award. These interviews with each nominator helped point out how students best exemplify resilience, integrity, support, and excellence. The students' other teachers are then interviewed, as well as applicable staff. Finally, three separate committees select which fifteen students should be awarded this honor. This means that out of over a hundred nominees, you were selected through this rigorous process as one of only fifteen award winners."</p>
+    </div>
+  </div>
+
   <!-- Scroll to top button -->
   <button id="scrollToTop" title="Go to top">↑</button>
 
@@ -235,6 +246,32 @@
   </footer>
 
   <script>
+    // Award modal functionality
+    function openAwardModal() {
+      document.getElementById('awardModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeAwardModal() {
+      document.getElementById('awardModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const modal = document.getElementById('awardModal');
+      if (event.target === modal) {
+        closeAwardModal();
+      }
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAwardModal();
+      }
+    });
+
     // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
