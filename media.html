@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Music & Piano Performance | Alec Stevens - Utah Classical Pianist</title>
+  <title>Media & Piano Performance | Alec Stevens - Utah Classical Pianist</title>
   <meta name="description" content="Explore Alec Stevens' classical piano performances and professional media. Utah-based pianist and University of Utah music student showcasing repertoire and recitals.">
   <link rel="canonical" href="https://alecstevens.com/media">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alecstevens.com/media">
-  <meta property="og:title" content="Music & Piano Performance | Alec Stevens - Utah Classical Pianist">
+  <meta property="og:title" content="Media & Piano Performance | Alec Stevens - Utah Classical Pianist">
   <meta property="og:description" content="Explore Alec Stevens' classical piano performances and professional media. Utah-based pianist and University of Utah music student showcasing repertoire and recitals.">
   <meta property="og:image" content="https://alecstevens.com/images/Headshot%202.jpg">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://alecstevens.com/media">
-  <meta name="twitter:title" content="Music & Piano Performance | Alec Stevens - Utah Classical Pianist">
+  <meta name="twitter:title" content="Media & Piano Performance | Alec Stevens - Utah Classical Pianist">
   <meta name="twitter:description" content="Explore Alec Stevens' classical piano performances and professional media. Utah-based pianist and University of Utah music student showcasing repertoire and recitals.">
   <meta name="twitter:image" content="https://alecstevens.com/images/Headshot%202.jpg">
   
@@ -67,7 +67,7 @@
   <main class="container">
     <!-- Media section for professional photos and performances -->
     <section class="media" id="media">
-      <h2>Music & Piano Performance</h2>
+      <h2>Media & Piano Performance</h2>
       <p class="subtle">A collection of professional photographs and classical piano performance recordings by Alec Stevens</p>
       
       <div class="media-grid">
@@ -88,11 +88,41 @@
           </div>
         </div>
 
+        <div class="media-item" data-type="image" data-src="images/presidential-intern-headshot.jpg" data-title="Presidential Intern Headshot" data-description="Professional headshot for Presidential Internship in Higher Education Leadership at the University of Utah.">
+          <img src="images/presidential-intern-headshot.jpg" alt="Alec Stevens Presidential Intern at University of Utah headshot">
+          <div class="media-caption">
+            <h3>Presidential Intern Headshot</h3>
+            <p>Professional headshot for Presidential Internship in Higher Education Leadership at the University of Utah.</p>
+          </div>
+        </div>
+
         <div class="media-item" data-type="video" data-src="videos/Schumann, Intermezzo, Carnival Scenes from Vienna.mp4" data-title="Schumann: Intermezzo from Carnival Scenes" data-description="Piano performance of Schumann's Intermezzo from Carnival Scenes from Vienna.">
           <video src="videos/Schumann, Intermezzo, Carnival Scenes from Vienna.mp4" muted preload="metadata" playsinline webkit-playsinline title="Alec Stevens Utah pianist performing classical repertoire - Schumann Intermezzo"></video>
           <div class="media-caption">
             <h3>Schumann: Intermezzo</h3>
             <p>Piano performance of Schumann's Intermezzo from Carnival Scenes from Vienna.</p>
+          </div>
+        </div>
+
+
+
+        <!-- Instagram Posts -->
+        <div class="media-item" data-type="instagram-single" data-src="images/instagram/ig.media.2025-11-28-21-14-25_0.jpg" data-instagram-url="https://www.instagram.com/p/DPz0mOmjK7t/" data-title="Presidential Intern - Health Sciences" data-description="Serving as a 2025-26 Presidential Intern in the Office of the Senior Vice President of Health Sciences at University of Utah Health. This position provides hands-on experience in healthcare administration and academic medical center leadership while developing strategic skills in one of the nation's leading health sciences institutions.">
+          <img src="images/instagram/ig.media.2025-11-28-21-14-25_0.jpg" alt="Alec Stevens Presidential Intern in Health Sciences at University of Utah">
+          <div class="media-caption">
+            <h3>Presidential Intern - Health Sciences</h3>
+            <p>Serving as a Presidential Intern in the Office of the Senior Vice President of Health Sciences at University of Utah Health, gaining experience in healthcare administration.</p>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="instagram-carousel" data-instagram-url="https://www.instagram.com/p/DQqWDIukV5-/?img_index=1" data-title="Presidential Intern Potluck Dinner" data-description="Featured in University of Utah President's Instagram post about hosting Presidential Interns for a community potluck dinner. Performed a piano recital for President Taylor Randall and fellow interns, demonstrating how vibrant communities come together through shared talents and experiences." data-slides='["images/instagram/ig.media.2025-11-28-21-13-41_3.jpg","images/instagram/ig.media.2025-11-28-21-13-44_1.mp4","images/instagram/ig.media.2025-11-28-21-13-37_2.jpg","images/instagram/ig.media.2025-11-28-21-13-33_0.jpg"]'>
+          <div class="instagram-carousel-preview">
+            <img src="images/instagram/ig.media.2025-11-28-21-13-41_3.jpg" alt="Alec Stevens with Presidential Interns at University of Utah potluck dinner">
+            <div class="carousel-indicator">1/4</div>
+          </div>
+          <div class="media-caption">
+            <h3>Presidential Intern Potluck Dinner</h3>
+            <p>Featured in University of Utah President's Instagram post about hosting Presidential Interns for a community potluck dinner. Performed a piano recital for President Taylor Randall and fellow interns.</p>
           </div>
         </div>
 
@@ -202,61 +232,121 @@
     const modal = document.getElementById('mediaModal');
     const modalContent = document.getElementById('modalContent');
     const modalClose = document.getElementById('modalClose');
-    const mediaItems = document.querySelectorAll('.media-item');
     let currentMediaIndex = 0;
 
-    mediaItems.forEach((item, index) => {
-      item.addEventListener('click', function() {
-        currentMediaIndex = index;
-        showMediaItem(index);
+    // Setup event listeners for all media items
+    function setupMediaItems() {
+      const mediaItems = document.querySelectorAll('.media-item');
+      mediaItems.forEach((item, index) => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentMediaIndex = index;
+          showMediaItem(index);
+        });
       });
-    });
+    }
+
+    // Initialize media items when DOM is ready
+    document.addEventListener('DOMContentLoaded', setupMediaItems);
+    setupMediaItems();
 
     function showMediaItem(index) {
-      const item = mediaItems[index];
+      const currentMediaItems = document.querySelectorAll('.media-item');
+      const item = currentMediaItems[index];
+      
+      if (!item) return;
+      
       const type = item.getAttribute('data-type');
       const src = item.getAttribute('data-src');
       const title = item.getAttribute('data-title');
       const description = item.getAttribute('data-description');
 
-        let content = '';
-        if (type === 'image') {
+      let content = '';
+      if (type === 'image') {
+        content = `
+          <div class="modal-media-wrapper">
+            <img src="${src}" alt="${title}">
+          </div>
+          <div class="modal-caption">
+            <h3>${title}</h3>
+            <p>${description}</p>
+          </div>
+        `;
+      } else if (type === 'video') {
+        if (src.includes('youtube.com') || src.includes('youtu.be') || src.includes('vimeo.com')) {
           content = `
             <div class="modal-media-wrapper">
-              <img src="${src}" alt="${title}">
+              <iframe src="${src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="modal-caption">
               <h3>${title}</h3>
               <p>${description}</p>
             </div>
           `;
-        } else if (type === 'video') {
-          // Check if it's a YouTube/external video or local video file
-          if (src.includes('youtube.com') || src.includes('youtu.be') || src.includes('vimeo.com')) {
-            content = `
-              <div class="modal-media-wrapper">
-                <iframe src="${src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              <div class="modal-caption">
-                <h3>${title}</h3>
-                <p>${description}</p>
-              </div>
-            `;
-          } else {
-            content = `
-              <div class="modal-media-wrapper">
-                <video src="${src}" controls autoplay>
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="modal-caption">
-                <h3>${title}</h3>
-                <h4 class="description-header">Description</h4>
-                <p>${description}</p>
-              </div>
-            `;
-          }
+        } else {
+          content = `
+            <div class="modal-media-wrapper">
+              <video src="${src}" controls autoplay>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="modal-caption">
+              <h3>${title}</h3>
+              <h4 class="description-header">Description</h4>
+              <p>${description}</p>
+            </div>
+          `;
         }
+      } else if (type === 'instagram-single') {
+        const instagramUrl = item.getAttribute('data-instagram-url');
+        content = `
+          <div class="modal-media-wrapper">
+            <img src="${src}" alt="${title}">
+          </div>
+          <div class="modal-caption">
+            <h3>${title}</h3>
+            <p>${description}</p>
+            <div class="instagram-link">
+              <a href="${instagramUrl}" target="_blank" rel="noopener noreferrer">View Instagram Post →</a>
+            </div>
+          </div>
+        `;
+      } else if (type === 'instagram-carousel') {
+        const instagramUrl = item.getAttribute('data-instagram-url');
+        const slides = JSON.parse(item.getAttribute('data-slides'));
+        let carouselContent = '';
+        
+        slides.forEach((slide, index) => {
+          const isVideo = slide.includes('.mp4');
+          const activeClass = index === 0 ? ' active' : '';
+          const mediaTag = isVideo 
+            ? `<video src="${slide}" controls>Your browser does not support the video tag.</video>`
+            : `<img src="${slide}" alt="${title} - Image ${index + 1}">`;
+          
+          carouselContent += `<div class="carousel-slide${activeClass}" data-slide="${index}">${mediaTag}</div>`;
+        });
+        
+        content = `
+          <div class="modal-media-wrapper">
+            <div class="carousel-container">
+              ${carouselContent}
+              <button class="carousel-prev" onclick="changeSlide(-1)">‹</button>
+              <button class="carousel-next" onclick="changeSlide(1)">›</button>
+              <div class="carousel-dots">
+                ${slides.map((_, index) => `<span class="dot${index === 0 ? ' active' : ''}" onclick="currentSlide(${index + 1})"></span>`).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="modal-caption">
+            <h3>${title}</h3>
+            <p>${description}</p>
+            <div class="instagram-link">
+              <a href="${instagramUrl}" target="_blank" rel="noopener noreferrer">View Instagram Post →</a>
+            </div>
+          </div>
+        `;
+      }
+
 
       modalContent.innerHTML = content;
       modalContent.className = 'modal-content';
@@ -264,15 +354,14 @@
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
       
-      // Hide hamburger menu and scroll to top button when modal is open
+      if (type === 'instagram-carousel') {
+        setTimeout(initializeCarousel, 100);
+      }
+      
       const hamburger = document.getElementById('hamburger');
       const scrollToTop = document.getElementById('scrollToTop');
-      if (hamburger) {
-        hamburger.classList.add('modal-open');
-      }
-      if (scrollToTop) {
-        scrollToTop.classList.add('modal-open');
-      }
+      if (hamburger) hamburger.classList.add('modal-open');
+      if (scrollToTop) scrollToTop.classList.add('modal-open');
       
       updateScrollButton();
     }
@@ -300,15 +389,13 @@
       const deltaX = touchEndX - touchStartX;
       const deltaY = touchEndY - touchStartY;
       const minSwipeDistance = 50;
+      const totalMediaItems = document.querySelectorAll('.media-item').length;
       
-      // Only register horizontal swipes (ignore vertical scrolling)
       if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
         if (deltaX > 0 && currentMediaIndex > 0) {
-          // Swipe right - go to previous
           currentMediaIndex--;
           showMediaItem(currentMediaIndex);
-        } else if (deltaX < 0 && currentMediaIndex < mediaItems.length - 1) {
-          // Swipe left - go to next
+        } else if (deltaX < 0 && currentMediaIndex < totalMediaItems - 1) {
           currentMediaIndex++;
           showMediaItem(currentMediaIndex);
         }
@@ -327,15 +414,10 @@
       document.body.style.overflow = 'auto';
       document.documentElement.style.overflow = 'auto';
       
-      // Restore hamburger menu and scroll to top button visibility
       const hamburger = document.getElementById('hamburger');
       const scrollToTop = document.getElementById('scrollToTop');
-      if (hamburger) {
-        hamburger.classList.remove('modal-open');
-      }
-      if (scrollToTop) {
-        scrollToTop.classList.remove('modal-open');
-      }
+      if (hamburger) hamburger.classList.remove('modal-open');
+      if (scrollToTop) scrollToTop.classList.remove('modal-open');
       
       modalContent.innerHTML = '';
       updateScrollButton();
@@ -343,22 +425,20 @@
 
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
-      if (modal.classList.contains('active')) {
-        if (e.key === 'Escape') {
-          closeModal();
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          if (currentMediaIndex > 0) {
-            currentMediaIndex--;
-            showMediaItem(currentMediaIndex);
-          }
-        } else if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          if (currentMediaIndex < mediaItems.length - 1) {
-            currentMediaIndex++;
-            showMediaItem(currentMediaIndex);
-          }
-        }
+      if (!modal.classList.contains('active')) return;
+      
+      const totalMediaItems = document.querySelectorAll('.media-item').length;
+      
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowLeft' && currentMediaIndex > 0) {
+        e.preventDefault();
+        currentMediaIndex--;
+        showMediaItem(currentMediaIndex);
+      } else if (e.key === 'ArrowRight' && currentMediaIndex < totalMediaItems - 1) {
+        e.preventDefault();
+        currentMediaIndex++;
+        showMediaItem(currentMediaIndex);
       }
     });
 
@@ -388,6 +468,41 @@
         }
       }
     }
+
+    // Carousel functionality
+    let slideIndex = 1;
+    
+    function changeSlide(n) {
+      showSlide(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlide(slideIndex = n);
+    }
+    
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.dot');
+      
+      if (slides.length === 0) return;
+      
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      if (slides[slideIndex - 1]) slides[slideIndex - 1].classList.add('active');
+      if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
+    }
+    
+    function initializeCarousel() {
+      slideIndex = 1;
+      showSlide(slideIndex);
+    }
+    
+    window.changeSlide = changeSlide;
+    window.currentSlide = currentSlide;
   </script>
 </body>
 </html>
