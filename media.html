@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Media – Alec R. Stevens</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <!-- Media page for Alec R. Stevens' portfolio -->
+  <header>
+    <!-- Header section with portrait, introduction, and navigation menu -->
+    <div class="container header-container">
+      <div class="portrait">
+        <img src="images/Headshot.jpg" alt="Alec R. Stevens Portrait">
+      </div>
+      <div class="intro">
+        <h1>Alec R. Stevens</h1>
+        <p>
+          Student at the University of Utah<br>
+          Honors Bachelor of Science in Biological Chemistry<br>
+          Bachelor of Music in Piano<br>
+          Minors in Biology, Chemistry, Health, and French
+        </p>
+        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
+      </div>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#volunteer">Volunteer</a></li>
+        <li><a href="index.html#recommendations">Endorsements</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Media section for professional photos and performances -->
+    <section class="media" id="media">
+      <h2>Professional Media & Performances</h2>
+      <p class="subtle">A collection of professional photographs and piano performance recordings</p>
+      
+      <div class="media-grid">
+        <!-- Example media items - Replace with your actual content -->
+        <div class="media-item" data-type="image" data-src="images/Headshot.jpg" data-title="Professional Headshot" data-description="Formal portrait for academic and professional presentations.">
+          <img src="images/Headshot.jpg" alt="Professional Headshot">
+          <div class="media-caption">
+            <h3>Professional Headshot</h3>
+            <p>Formal portrait for academic and professional presentations.</p>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="image" data-src="images/Headshot 2.jpg" data-title="Professional Headshot - Profile" data-description="Black and white profile portrait for formal presentations and publications.">
+          <img src="images/Headshot 2.jpg" alt="Professional Headshot - Profile">
+          <div class="media-caption">
+            <h3>Professional Headshot - Profile</h3>
+            <p>Black and white profile portrait for formal presentations and publications.</p>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="video" data-src="videos/Schumann, Intermezzo, Carnival Scenes from Vienna.mp4" data-title="Schumann: Intermezzo from Carnival Scenes" data-description="Piano performance of Schumann's Intermezzo from Carnival Scenes from Vienna.">
+          <video src="videos/Schumann, Intermezzo, Carnival Scenes from Vienna.mp4" muted></video>
+          <div class="media-caption">
+            <h3>Schumann: Intermezzo</h3>
+            <p>Piano performance of Schumann's Intermezzo from Carnival Scenes from Vienna.</p>
+          </div>
+        </div>
+
+        <!-- Add more media items here -->
+        <!-- Example for YouTube video embed:
+        <div class="media-item" data-type="video" data-src="https://www.youtube.com/embed/VIDEO_ID" data-title="Piano Performance Title" data-description="Description of the performance, date, and location.">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="media-caption">
+            <h3>Piano Performance Title</h3>
+            <p>Description of the performance, date, and location.</p>
+          </div>
+        </div>
+        -->
+
+        <!-- Example for additional photos:
+        <div class="media-item" data-type="image" data-src="path-to-your-image.jpg" data-title="Photo Title" data-description="Description of the photo and context.">
+          <img src="path-to-your-image.jpg" alt="Description">
+          <div class="media-caption">
+            <h3>Photo Title</h3>
+            <p>Description of the photo and context.</p>
+          </div>
+        </div>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for expanded view -->
+  <div class="media-modal" id="mediaModal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <footer>
+    <!-- Footer with copyright information -->
+    <p>© 2025 Alec R. Stevens • Built for professional and academic presentation</p>
+  </footer>
+
+  <script>
+    // Media modal functionality
+    const modal = document.getElementById('mediaModal');
+    const modalContent = document.getElementById('modalContent');
+    const modalClose = document.getElementById('modalClose');
+    const mediaItems = document.querySelectorAll('.media-item');
+
+    mediaItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const type = this.getAttribute('data-type');
+        const src = this.getAttribute('data-src');
+        const title = this.getAttribute('data-title');
+        const description = this.getAttribute('data-description');
+
+        let content = '';
+        if (type === 'image') {
+          content = `
+            <div class="modal-media-wrapper">
+              <img src="${src}" alt="${title}">
+            </div>
+            <div class="modal-caption">
+              <h3>${title}</h3>
+              <p>${description}</p>
+            </div>
+          `;
+        } else if (type === 'video') {
+          // Check if it's a YouTube/external video or local video file
+          if (src.includes('youtube.com') || src.includes('youtu.be') || src.includes('vimeo.com')) {
+            content = `
+              <div class="modal-media-wrapper">
+                <iframe src="${src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="modal-caption">
+                <h3>${title}</h3>
+                <p>${description}</p>
+              </div>
+            `;
+          } else {
+            content = `
+              <div class="modal-media-wrapper">
+                <video src="${src}" controls autoplay>
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="modal-caption">
+                <h3>${title}</h3>
+                <p>${description}</p>
+              </div>
+            `;
+          }
+        }
+
+        modalContent.innerHTML = content;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      modalContent.innerHTML = '';
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

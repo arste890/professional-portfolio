@@ -1,77 +1,96 @@
 /* Base styles for the entire document */
 body {
   margin: 0;
-  font-family: "Times New Roman", serif;
-  background-color: #faf8f5;
-  color: #2d2d2d;
-  line-height: 1.8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #1a1a1a;
+  line-height: 1.7;
+  font-size: 16px;
 }
 
 /* Layout and container styles */
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem;
 }
 
 /* Header styles, including portrait and introduction */
 header {
-  background-color: #f3efe9;
-  border-bottom: 1px solid #dcd6ce;
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
+  border-bottom: 2px solid #dee2e6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .portrait img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover; /* Ensures the image fills the frame */
-  object-position: 0px -9px; /* Crops the image higher to avoid cutting off the head */
-  border: 5px solid #dcd6ce;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: 0px -9px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portrait img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .intro h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  font-style: italic;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .intro p {
-  font-size: 1.2rem;
-  font-style: italic;
+  font-size: 1.1rem;
+  color: #495057;
   margin: 0.5rem 0;
+  line-height: 1.8;
 }
 
 .linkedin {
-  font-size: 1.1rem;
-  padding: 0.6rem 1.4rem;
-  border: 2px solid #0e76a8;
-  background-color: transparent;
-  color: #0e76a8;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #0077b5, #005582);
+  color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.2);
 }
 
 .linkedin:hover {
-  background-color: #0e76a8;
-  color: white;
+  background: linear-gradient(135deg, #005582, #003d5c);
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Navigation menu styles */
 .menu {
-  background-color: #f3efe9;
-  border-top: 1px solid #dcd6ce;
-  border-bottom: 1px solid #dcd6ce;
-  padding: 0.5rem 0;
+  background-color: #ffffff;
+  border-top: 1px solid #e9ecef;
+  padding: 1rem 0;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .menu ul {
@@ -80,97 +99,133 @@ header {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .menu a {
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #2d2d2d;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #495057;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .menu a:hover {
-  background-color: #dcd6ce;
-  color: #fff;
+  background-color: #e9ecef;
+  color: #1a1a1a;
+  transform: translateY(-1px);
 }
 
 /* Main content styles for sections and cards */
 main h2 {
-  font-size: 1.8rem;
-  border-bottom: 2px solid #c7beb1;
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.3px;
 }
 
 .subtle {
-  color: #666;
+  color: #6c757d;
   margin-bottom: 1.5rem;
+  font-size: 1.05rem;
 }
 
 /* GitHub project frame */
 .repo-card {
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-left: 4px solid #c7beb1;
-  background-color: #f9f7f4;
+  padding: 1.5rem;
+  border-left: 4px solid #0077b5;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.repo-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .repo-card h3 {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .repo-card a {
-  color: #2d3e50;
+  color: #0077b5;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .repo-card a:hover {
+  color: #005582;
   text-decoration: underline;
 }
 
 /* Reverting styles for sections */
-.repos, .recommendations, .experience, .volunteer, .about {
-  background-color: #fff;
-  border: 1px solid #dcd6ce;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.repos, .recommendations, .experience, .volunteer, .about, .media {
+  background-color: #ffffff;
+  border: none;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
 }
 
-.repos h2, .recommendations h2, .experience h2, .volunteer h2, .about h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2d2d2d;
+.repos:hover, .recommendations:hover, .experience:hover, .volunteer:hover, .about:hover, .media:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.repos h2, .recommendations h2, .experience h2, .volunteer h2, .about h2, .media h2 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #1a1a1a;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.5px;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .recommendation, .job {
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-left: 4px solid #c7beb1;
-  background-color: #f9f7f4;
+  padding: 1.25rem;
+  padding-left: calc(1.25rem + 1px);
+  border-left: 4px solid #0077b5;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.recommendation:hover, .job:hover {
+  border-left-width: 5px;
+  padding-left: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateX(1px);
 }
 
 /* Unified background color for endorsements */
 .recommendation footer {
-  background-color: transparent; /* Removed the box color difference */
+  background-color: transparent;
   font-style: italic;
-  color: #666;
-  margin-top: 0.5rem;
+  color: #6c757d;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
 }
 
 .job h3 {
-  font-style: italic;
-  color: #666;
+  font-style: normal;
+  color: #495057;
   margin-top: 0.5rem;
 }
 
@@ -178,15 +233,17 @@ main h2 {
   cursor: pointer;
   user-select: none;
   font-style: normal !important;
-  color: #2d2d2d !important;
-  font-weight: bold;
-  transition: color 0.3s;
+  color: #1a1a1a !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
   position: relative;
-  padding-right: 2rem;
+  padding-right: 2.5rem;
+  font-size: 1.15rem;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 .job-title:hover {
-  color: #0e76a8 !important;
+  color: #0077b5 !important;
 }
 
 .job-title::after {
@@ -194,7 +251,8 @@ main h2 {
   position: absolute;
   right: 0;
   font-size: 1.5em;
-  font-weight: normal;
+  font-weight: 300;
+  color: #0077b5;
   transition: transform 0.3s ease;
 }
 
@@ -204,35 +262,214 @@ main h2 {
 
 .job-date {
   font-size: 0.9em;
-  color: #666;
-  font-weight: normal;
-  font-style: italic;
+  color: #6c757d;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .job-description {
   display: none;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
   overflow: hidden;
   transition: all 0.3s ease;
+  color: #495057;
+  line-height: 1.7;
 }
 
 /* Framed style for textual elements under the 'About Alec' heading */
 .about p {
-  padding: 1rem;
-  border-left: 4px solid #c7beb1;
-  background-color: #f9f7f4;
+  padding: 1.5rem;
+  border-left: 3px solid #0077b5;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
   margin-bottom: 1rem;
+  border-radius: 6px;
+  color: #495057;
+  line-height: 1.8;
 }
 
 /* Footer styles */
 footer {
-  background-color: #f3efe9;
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  color: #6c757d;
+  border-top: 2px solid #dee2e6;
+  margin-top: 3rem;
+}
+
+/* Media gallery styles */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.media-item {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.media-item img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 2px solid #0077b5;
+}
+
+.media-item iframe,
+.media-item video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: none;
+  border-bottom: 2px solid #0077b5;
+  pointer-events: none;
+  object-fit: cover;
+  object-position: 15% center;
+  background: #000000;
+}
+
+.media-caption {
+  padding: 0.75rem;
+  background: #ffffff;
+}
+
+.media-caption h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.3;
+}
+
+.media-caption p {
+  font-size: 0.75rem;
+  color: #6c757d;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Modal/Lightbox styles */
+.media-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.media-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-media-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-content iframe,
+.modal-content video {
+  width: 80vw;
+  height: 45vw;
+  max-width: 1200px;
+  max-height: 675px;
+  border: none;
+  display: block;
+}
+
+.modal-content video {
+  background: #000000;
+  object-fit: contain;
+  object-position: 33% center;
+}
+
+.modal-caption {
+  padding: 1.5rem;
+  background: #ffffff;
+}
+
+.modal-caption h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.modal-caption p {
   font-size: 1rem;
-  font-style: italic;
-  color: #333;
-  border-top: 1px solid #dcd6ce;
+  color: #495057;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* Responsive styles for mobile devices */
@@ -279,7 +516,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  .repos, .recommendations, .experience, .volunteer, .about {
+  .repos, .recommendations, .experience, .volunteer, .about, .media {
     padding: 1rem;
   }
 
@@ -293,5 +530,23 @@ footer {
 
   footer {
     font-size: 0.9rem;
+  }
+
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .modal-content iframe {
+    width: 95vw;
+    height: 53vw;
+  }
+  
+  .media-caption h3 {
+    font-size: 0.85rem;
+  }
+  
+  .media-caption p {
+    font-size: 0.7rem;
   }
 }
