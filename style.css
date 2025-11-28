@@ -709,15 +709,17 @@ footer {
   /* Mobile menu - full screen modal */
   .menu {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100dvh;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh; /* Small viewport height - excludes browser UI */
     background: rgba(0, 0, 0, 0.95);
-    z-index: 1000;
+    z-index: 9999;
     display: none;
     align-items: center;
     justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   .menu.active {
