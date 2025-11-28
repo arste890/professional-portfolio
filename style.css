@@ -136,7 +136,7 @@ main h2 {
 }
 
 /* Reverting styles for sections */
-.repos, .recommendations, .experience, .about {
+.repos, .recommendations, .experience, .volunteer, .about {
   background-color: #fff;
   border: 1px solid #dcd6ce;
   padding: 2rem;
@@ -145,7 +145,7 @@ main h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.repos h2, .recommendations h2, .experience h2, .about h2 {
+.repos h2, .recommendations h2, .experience h2, .volunteer h2, .about h2 {
   font-size: 2rem;
   font-weight: bold;
   color: #2d2d2d;
@@ -172,6 +172,48 @@ main h2 {
   font-style: italic;
   color: #666;
   margin-top: 0.5rem;
+}
+
+.job-title {
+  cursor: pointer;
+  user-select: none;
+  font-style: normal !important;
+  color: #2d2d2d !important;
+  font-weight: bold;
+  transition: color 0.3s;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.job-title:hover {
+  color: #0e76a8 !important;
+}
+
+.job-title::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-size: 1.5em;
+  font-weight: normal;
+  transition: transform 0.3s ease;
+}
+
+.job-title.active::after {
+  content: '−';
+}
+
+.job-date {
+  font-size: 0.9em;
+  color: #666;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.job-description {
+  display: none;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 /* Framed style for textual elements under the 'About Alec' heading */
@@ -237,7 +279,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  .repos, .recommendations, .experience, .about {
+  .repos, .recommendations, .experience, .volunteer, .about {
     padding: 1rem;
   }
 
