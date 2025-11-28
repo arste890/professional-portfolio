@@ -26,11 +26,17 @@
         <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
       </div>
     </div>
-    <nav class="menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="menu" id="menu">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/#about">About</a></li>
         <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#education">Education</a></li>
         <li><a href="/#volunteer">Volunteer</a></li>
         <li><a href="/#recommendations">Endorsements</a></li>
         <li><a href="/media">Media</a></li>
@@ -110,6 +116,35 @@
   </footer>
 
   <script>
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('menu');
+    
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+    
+    // Close menu when clicking on a link
+    const menuLinks = navMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
     // Scroll to top functionality
     const scrollToTopBtn = document.getElementById('scrollToTop');
     

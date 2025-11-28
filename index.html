@@ -26,11 +26,17 @@
         <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
       </div>
     </div>
-    <nav class="menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="menu" id="menu">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#volunteer">Volunteer</a></li>
         <li><a href="#recommendations">Endorsements</a></li>
         <li><a href="/media">Media</a></li>
@@ -95,6 +101,59 @@
         <p class="job-description">
           As a Science Ambassador for the University of Utah's College of Science, I serve as a representative for prospective and current students, supporting recruitment, outreach, and student engagement efforts. I lead campus tours, mentor first-year and transfer students, and assist with New Student Orientation and themed community initiatives. I also participate in K–12 STEM outreach events and university-sponsored programs that promote science education and community involvement.
         </p>
+      </div>
+    </section>
+
+    <section class="education" id="education">
+      <h2>Education</h2>
+      <div class="education-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Utah_Utes_primary_logo.svg/640px-Utah_Utes_primary_logo.svg.png" alt="University of Utah" class="education-logo">
+        <div class="education-content">
+          <h3>Honors Bachelor of Science, Biological Chemistry <span class="job-date">Aug 2022 - May 2026</span></h3>
+          <p class="job-company">University of Utah</p>
+        </div>
+      </div>
+      <div class="education-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Utah_Utes_primary_logo.svg/640px-Utah_Utes_primary_logo.svg.png" alt="University of Utah" class="education-logo">
+        <div class="education-content">
+          <h3>Bachelor of Music, Piano Pedagogy <span class="job-date">Aug 2022 - May 2026</span></h3>
+          <p class="job-company">University of Utah</p>
+        </div>
+      </div>
+      <div class="education-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/UVUMonogramGreen.svg/640px-UVUMonogramGreen.svg.png" alt="Utah Valley University" class="education-logo">
+        <div class="education-content">
+          <h3>Non-Degree Seeking <span class="job-date">May 2024, May 2025 - May 2026</span></h3>
+          <p class="job-company">Utah Valley University</p>
+        </div>
+      </div>
+      <div class="education-item">
+        <img src="https://1000logos.net/wp-content/uploads/2019/09/BYU-Emblem.png" alt="Brigham Young University" class="education-logo">
+        <div class="education-content">
+          <h3>Non-Degree Seeking <span class="job-date">May 2024</span></h3>
+          <p class="job-company">Brigham Young University</p>
+        </div>
+      </div>
+      <div class="education-item">
+        <img src="https://i.slcc.edu/institutionalmarketing/images/logo/SLCClogo-BrandColors2015.png" alt="Salt Lake Community College" class="education-logo">
+        <div class="education-content">
+          <h3>Non-Degree Seeking <span class="job-date">Aug 2022</span></h3>
+          <p class="job-company">Salt Lake Community College</p>
+        </div>
+      </div>
+      <div class="education-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/International_Baccalaureate_Logo.svg/640px-International_Baccalaureate_Logo.svg.png" alt="International Baccalaureate" class="education-logo">
+        <div class="education-content">
+          <h3>Diploma Program <span class="job-date">Aug 2020 - May 2022</span></h3>
+          <p class="job-company">International Baccalaureate</p>
+        </div>
+      </div>
+      <div class="education-item">
+        <img src="https://www.skylineeaglesathletics.org/_next/image?url=https%3A%2F%2Fsportshub2-uploads.vnn-prod.zone%2Ffiles%2Fsites%2F1427%2F2018%2F01%2F26192524%2Flogo_outline.png&w=3840&q=75" alt="Skyline High School" class="education-logo">
+        <div class="education-content">
+          <h3>High School Diploma <span class="job-date">Aug 2018 - May 2022</span></h3>
+          <p class="job-company">Skyline High School</p>
+        </div>
       </div>
     </section>
 
@@ -176,6 +235,35 @@
   </footer>
 
   <script>
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      menu.classList.toggle('active');
+      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+    
+    // Close menu when clicking on a link
+    const menuLinks = menu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
     // Scroll to top functionality
     const scrollToTopBtn = document.getElementById('scrollToTop');
     
@@ -199,7 +287,8 @@
 
   <script>
     // Make job descriptions collapsible with smooth accordion animation
-    document.querySelectorAll('.job-title').forEach(title => {
+    // Exclude education section from accordion functionality
+    document.querySelectorAll('.experience .job-title, .volunteer .job-title').forEach(title => {
       const description = title.nextElementSibling;
       
       title.addEventListener('click', function() {

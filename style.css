@@ -120,6 +120,42 @@ header {
   transform: translateY(-1px);
 }
 
+/* Hamburger menu button - hidden on desktop, visible on mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #0077b5;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Main content styles for sections and cards */
 main h2 {
   font-size: 2rem;
@@ -173,7 +209,7 @@ main h2 {
 }
 
 /* Reverting styles for sections */
-.repos, .recommendations, .experience, .volunteer, .about, .media {
+.repos, .recommendations, .experience, .education, .volunteer, .about, .media {
   background-color: #ffffff;
   border: none;
   padding: 2.5rem;
@@ -240,6 +276,47 @@ main h2 {
   padding-right: 2.5rem;
   font-size: 1.15rem;
   font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Education items with logos */
+.education-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  padding-left: calc(1.25rem + 1px);
+  border-left: 4px solid #0077b5;
+  background: #f8f9fa;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.education-item:hover {
+  border-left-width: 5px;
+  padding-left: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateX(1px);
+}
+
+.education-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.education-content {
+  flex: 1;
+}
+
+.education-content h3 {
+  font-style: normal !important;
+  color: #1a1a1a !important;
+  font-weight: 600;
+  font-size: 1.15rem;
+  font-family: Georgia, "Times New Roman", serif;
+  margin-bottom: 0.5rem;
 }
 
 .job-title:hover {
@@ -625,21 +702,51 @@ footer {
     padding: 0.5rem 1rem;
   }
 
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Mobile menu - full screen modal */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
   .menu ul {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
+    align-items: center;
   }
 
   .menu a {
-    font-size: 1rem;
-    padding: 0.5rem;
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+    color: #ffffff;
+  }
+
+  .menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
   }
 
   main h2 {
     font-size: 1.5rem;
   }
 
-  .repos, .recommendations, .experience, .volunteer, .about, .media {
+  .repos, .recommendations, .experience, .education, .volunteer, .about, .media {
     padding: 1rem;
   }
 
