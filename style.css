@@ -630,23 +630,12 @@ footer {
   margin: 0;
 }
 
-/* Video modal caption with description initially hidden */
-.modal-content.video-modal .modal-caption {
-  min-height: calc(100vh - 45vw);
-  padding-bottom: 2rem;
-}
-
-.modal-content.video-modal .modal-caption .description-header {
+.description-header {
   font-size: 1.1rem;
   font-weight: 600;
   color: #0077b5;
-  margin-top: calc(100vh - 45vw - 9rem);
   margin-bottom: 0.5rem;
   font-family: Georgia, "Times New Roman", serif;
-}
-
-.modal-content.video-modal .modal-caption p {
-  margin-top: 0;
 }
 
 .modal-close {
@@ -767,7 +756,8 @@ footer {
     gap: 0.75rem;
   }
 
-  .modal-content iframe {
+  .modal-content iframe,
+  .modal-content video {
     width: 95vw;
     height: 53vw;
   }
@@ -778,5 +768,16 @@ footer {
   
   .media-caption p {
     font-size: 0.7rem;
+  }
+
+  .education-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .education-logo {
+    width: 60px;
+    height: 60px;
   }
 }
