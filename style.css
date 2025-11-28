@@ -250,7 +250,7 @@ main h2 {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
-.repos h2, .recommendations h2, .experience h2, .volunteer h2, .about h2, .media h2, .not-found h2 {
+.repos h2, .recommendations h2, .experience h2, .education h2, .volunteer h2, .about h2, .media h2, .not-found h2 {
   font-size: 2.2rem;
   font-weight: 500;
   color: #1a1a1a;
