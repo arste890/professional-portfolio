@@ -7,6 +7,10 @@
   <meta name="description" content="Explore Alec Stevens' classical piano performances and professional media. Utah-based pianist and University of Utah music student showcasing repertoire and recitals.">
   <link rel="canonical" href="https://alecstevens.com/media">
   
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alecstevens.com/media">
@@ -21,6 +25,14 @@
   <meta name="twitter:description" content="Explore Alec Stevens' classical piano performances and professional media. Utah-based pianist and University of Utah music student showcasing repertoire and recitals.">
   <meta name="twitter:image" content="https://alecstevens.com/images/profile-headshot.jpg">
   
+  <!-- Resource Hints for Performance -->
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link rel="preconnect" href="https://1000logos.net">
+  <link rel="dns-prefetch" href="https://upload.wikimedia.org">
+  <link rel="dns-prefetch" href="https://1000logos.net">
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/images/Headshot-320x480.webp" as="image" type="image/webp">
+  
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/favicon.ico" />
 </head>
@@ -30,7 +42,11 @@
     <!-- Header section with portrait, introduction, and navigation menu -->
     <div class="container header-container">
       <div class="portrait">
-        <img src="/images/Headshot.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait">
+        <picture>
+          <source type="image/webp" srcset="/images/Headshot-320x480.webp 1x, /images/Headshot-640x960.webp 2x">
+          <source type="image/jpeg" srcset="/images/Headshot-320x480.jpg 1x, /images/Headshot-640x960.jpg 2x">
+          <img src="/images/Headshot-320x480.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait" width="320" height="480">
+        </picture>
       </div>
       <div class="intro">
         <h1>Alec R. Stevens</h1>

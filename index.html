@@ -7,6 +7,10 @@
   <meta name="description" content="Alec Stevens is a pre-medical student, pianist, researcher, and higher education leader based in Utah. Explore his academic work in biochemistry, leadership roles at the University of Utah, community service, music performance, and professional portfolio.">
   <link rel="canonical" href="https://alecstevens.com/">
   
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alecstevens.com/">
@@ -44,6 +48,15 @@
   }
   </script>
   
+  <!-- Resource Hints for Performance -->
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link rel="preconnect" href="https://1000logos.net">
+  <link rel="dns-prefetch" href="https://upload.wikimedia.org">
+  <link rel="dns-prefetch" href="https://1000logos.net">
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/images/Headshot-320x480.webp" as="image" type="image/webp">
+  <link rel="preload" href="/images/Headshot-640x960.webp" as="image" type="image/webp" media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)">
+  
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/favicon.ico" />
 </head>
@@ -53,7 +66,11 @@
     <!-- Header section with portrait and introduction -->
     <div class="container header-container">
       <div class="portrait">
-        <img src="/images/Headshot.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait">
+        <picture>
+          <source type="image/webp" srcset="/images/Headshot-320x480.webp 1x, /images/Headshot-640x960.webp 2x">
+          <source type="image/jpeg" srcset="/images/Headshot-320x480.jpg 1x, /images/Headshot-640x960.jpg 2x">
+          <img src="/images/Headshot-320x480.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait" width="320" height="480">
+        </picture>
       </div>
       <div class="intro">
         <h1>Alec R. Stevens</h1>
@@ -149,28 +166,28 @@
     <section class="education" id="education">
       <h2>Education</h2>
       <div class="education-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Utah_Utes_primary_logo.svg/640px-Utah_Utes_primary_logo.svg.png" alt="University of Utah logo" class="education-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Utah_Utes_primary_logo.svg/640px-Utah_Utes_primary_logo.svg.png" alt="University of Utah logo" class="education-logo" width="160" height="160" loading="lazy">
         <div class="education-content">
           <h3>Honors Bachelor of Science, Biological Chemistry <span class="job-date">Aug 2022 - May 2026</span></h3>
           <p class="job-company">University of Utah</p>
         </div>
       </div>
       <div class="education-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Utah_Utes_primary_logo.svg/640px-Utah_Utes_primary_logo.svg.png" alt="University of Utah logo" class="education-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Utah_Utes_primary_logo.svg/640px-Utah_Utes_primary_logo.svg.png" alt="University of Utah logo" class="education-logo" width="160" height="160" loading="lazy">
         <div class="education-content">
           <h3>Bachelor of Music, Piano <span class="job-date">Aug 2022 - May 2026</span></h3>
           <p class="job-company">University of Utah</p>
         </div>
       </div>
       <div class="education-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/UVUMonogramGreen.svg/640px-UVUMonogramGreen.svg.png" alt="Utah Valley University logo" class="education-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/UVUMonogramGreen.svg/640px-UVUMonogramGreen.svg.png" alt="Utah Valley University logo" class="education-logo" width="160" height="48" loading="lazy">
         <div class="education-content">
           <h3>Non-Degree Seeking <span class="job-date">May 2024, May 2025 - May 2026</span></h3>
           <p class="job-company">Utah Valley University</p>
         </div>
       </div>
       <div class="education-item">
-        <img src="https://1000logos.net/wp-content/uploads/2019/09/BYU-Emblem.png" alt="Brigham Young University logo" class="education-logo">
+        <img src="https://1000logos.net/wp-content/uploads/2019/09/BYU-Emblem.png" alt="Brigham Young University logo" class="education-logo" width="160" height="90" loading="lazy">
         <div class="education-content">
           <h3>Non-Degree Seeking <span class="job-date">May 2024</span></h3>
           <p class="job-company">Brigham Young University</p>
@@ -184,14 +201,18 @@
         </div>
       </div> --->
       <div class="education-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/International_Baccalaureate_Logo.svg/640px-International_Baccalaureate_Logo.svg.png" alt="International Baccalaureate logo" class="education-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/International_Baccalaureate_Logo.svg/640px-International_Baccalaureate_Logo.svg.png" alt="International Baccalaureate logo" class="education-logo" width="160" height="160" loading="lazy">
         <div class="education-content">
           <h3>Diploma Program <span class="job-date">Aug 2020 - May 2022</span></h3>
           <p class="job-company">International Baccalaureate</p>
         </div>
       </div>
       <div class="education-item">
-        <img src="/images/logo_outline.png" alt="Skyline High School Utah logo" class="education-logo">
+        <picture>
+          <source type="image/webp" srcset="/images/logo_outline-160x70.webp 1x, /images/logo_outline-320x140.webp 2x">
+          <source type="image/png" srcset="/images/logo_outline-160x70.png 1x, /images/logo_outline-320x140.png 2x">
+          <img src="/images/logo_outline-160x70.png" alt="Skyline High School Utah logo" class="education-logo" width="160" height="70" loading="lazy">
+        </picture>
         <div class="education-content">
           <h3>High School Diploma <span class="job-date">Aug 2018 - May 2022</span></h3>
           <p class="job-company">Skyline High School</p>
