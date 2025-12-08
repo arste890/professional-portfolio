@@ -285,7 +285,7 @@ main h2 {
 .recommendation footer {
   background-color: transparent;
   font-style: italic;
-  color: #6c757d;
+  color: #495057;
   margin-top: 0.75rem;
   font-size: 0.95rem;
 }
@@ -455,8 +455,8 @@ main h2 {
 
 .job-date {
   font-size: 0.9em;
-  color: #6c757d;
-  font-weight: 400;
+  color: #495057;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -549,7 +549,7 @@ footer {
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.95rem;
-  color: #6c757d;
+  color: #495057;
   border-top: 2px solid #dee2e6;
   margin-top: 3rem;
 }
