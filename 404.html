@@ -88,10 +88,13 @@
 
   <footer>
     <!-- Footer with copyright information -->
-    <p>© 2025 Alec R. Stevens • Built for professional and academic presentation</p>
+    <p>© <span id="year"></span> Alec R. Stevens • Built for professional and academic presentation</p>
   </footer>
 
   <script>
+    // Automatically update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
     // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
