@@ -1033,10 +1033,19 @@ footer {
   /* Show hamburger menu on mobile */
   .hamburger {
     display: flex;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
   }
 
   .hamburger span {
     background: #0077b5;
+  }
+
+  .hamburger.active {
+    background: transparent;
+    box-shadow: none;
   }
 
   .hamburger.active span {
