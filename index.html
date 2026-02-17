@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alec Stevens | Utah Pre-Medical Student, Researcher, Pianist, and Higher Education Leader</title>
   <meta name="description" content="Alec Stevens is a pre-medical student, pianist, researcher, and higher education leader based in Utah. Explore his academic work in biochemistry, leadership roles at the University of Utah, community service, music performance, and professional portfolio.">
+  <meta name="keywords" content="Alec Stevens, Alec R Stevens, pre-medical student Utah, University of Utah, biochemistry, classical pianist, researcher, higher education leader, piano performance, Salt Lake City">
   <link rel="canonical" href="https://alecstevens.com/">
   
   <!-- Security Headers -->
@@ -31,20 +32,51 @@
     "@context": "https://schema.org/",
     "@type": "Person",
     "name": "Alec R. Stevens",
-    "alternateName": "Alec Stevens",
+    "alternateName": ["Alec Stevens", "Alec R Stevens"],
     "url": "https://alecstevens.com",
     "image": "https://alecstevens.com/images/profile-headshot.jpg",
     "jobTitle": "Pre-Medical Student, Biochemist, Researcher, Pianist",
     "alumniOf": [
       {
         "@type": "CollegeOrUniversity",
-        "name": "University of Utah"
+        "name": "University of Utah",
+        "url": "https://www.utah.edu"
       }
     ],
     "sameAs": [
-      "https://github.com/arste890"
+      "https://github.com/arste890",
+      "https://www.linkedin.com/in/arste890/"
     ],
-    "description": "Alec R. Stevens (Alec Stevens) is a pre-medical student, pianist, researcher, and higher education leader based in Utah. His work spans biochemistry, quantitative research, classical piano performance, and student leadership at the University of Utah."
+    "description": "Alec R. Stevens (Alec Stevens) is a pre-medical student, pianist, researcher, and higher education leader based in Utah. His work spans biochemistry, quantitative research, classical piano performance, and student leadership at the University of Utah.",
+    "knowsAbout": ["Biochemistry", "Classical Piano", "Higher Education Leadership", "Antibiotic Research", "Music Performance"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "UT",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Alec Stevens Portfolio",
+    "url": "https://alecstevens.com",
+    "description": "Professional portfolio of Alec R. Stevens — pre-medical student, pianist, researcher, and higher education leader at the University of Utah."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://alecstevens.com/"
+      }
+    ]
   }
   </script>
   
@@ -56,6 +88,8 @@
   <link rel="icon" href="/favicon.ico" />
 </head>
 <body>
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Main HTML structure for Alec R. Stevens' portfolio -->
   <header>
     <!-- Header section with portrait and introduction -->
@@ -64,7 +98,7 @@
         <picture>
           <source type="image/webp" srcset="/images/Headshot-320x480.webp 1x, /images/Headshot-640x960.webp 2x">
           <source type="image/jpeg" srcset="/images/Headshot-320x480.jpg 1x, /images/Headshot-640x960.jpg 2x">
-          <img src="/images/Headshot-320x480.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait" width="320" height="480">
+          <img src="/images/Headshot-320x480.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait" width="320" height="480" fetchpriority="high">
         </picture>
       </div>
       <div class="intro">
@@ -75,7 +109,7 @@
           Bachelor of Music in Piano<br>
           Minors in Biology, Chemistry, and Health
         </p>
-        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
+        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank" rel="noopener noreferrer">View LinkedIn Profile</a>
       </div>
     </div>
   </header>
@@ -86,7 +120,7 @@
     <span></span>
     <span></span>
   </button>
-  <nav class="menu" id="menu">
+  <nav class="menu" id="menu" aria-label="Main navigation">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -99,7 +133,7 @@
     </ul>
   </nav>
 
-  <main class="container">
+  <main class="container" id="main-content">
     <!-- Main content sections: About, Experience, Volunteer, and Endorsements -->
     <section class="about" id="about">
       <h2>About Alec Stevens</h2>
