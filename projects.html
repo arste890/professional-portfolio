@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Alec Stevens - Utah Pre-Medical Student & Developer</title>
   <meta name="description" content="Explore Alec Stevens' academic and development projects. Utah-based pre-medical student at the University of Utah showcasing GitHub repositories and technical work.">
+  <meta name="keywords" content="Alec Stevens projects, GitHub, University of Utah, developer, pre-medical student, Alec R Stevens">
   <link rel="canonical" href="https://alecstevens.com/projects">
   
   <!-- Security Headers -->
@@ -29,12 +30,49 @@
   <link rel="preconnect" href="https://api.github.com">
   <link rel="dns-prefetch" href="https://api.github.com">
   <link rel="preload" href="/style.css" as="style">
-  <link rel="preload" href="/images/Headshot-320x480.webp" as="image" type="image/webp" fetchpriority="high">
   
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/favicon.ico" />
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects - Alec Stevens",
+    "description": "A curated selection of Alec Stevens' public GitHub repositories and academic projects.",
+    "url": "https://alecstevens.com/projects",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Alec Stevens Portfolio",
+      "url": "https://alecstevens.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://alecstevens.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://alecstevens.com/projects"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Projects page for Alec R. Stevens' portfolio -->
   <header>
     <!-- Header section with portrait, introduction, and navigation menu -->
@@ -43,7 +81,7 @@
         <picture>
           <source type="image/webp" srcset="/images/Headshot-320x480.webp 1x, /images/Headshot-640x960.webp 2x">
           <source type="image/jpeg" srcset="/images/Headshot-320x480.jpg 1x, /images/Headshot-640x960.jpg 2x">
-          <img src="/images/Headshot-320x480.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait" width="320" height="480">
+          <img src="/images/Headshot-320x480.jpg" alt="Alec Stevens Utah pre-medical student and pianist portrait" width="320" height="480" fetchpriority="high">
         </picture>
       </div>
       <div class="intro">
@@ -54,7 +92,7 @@
           Bachelor of Music in Piano<br>
           Minors in Biology, Chemistry, and Health
         </p>
-        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank">View LinkedIn Profile</a>
+        <a class="linkedin" href="https://www.linkedin.com/in/arste890/" target="_blank" rel="noopener noreferrer">View LinkedIn Profile</a>
       </div>
     </div>
   </header>
@@ -65,7 +103,7 @@
     <span></span>
     <span></span>
   </button>
-  <nav class="menu" id="menu">
+  <nav class="menu" id="menu" aria-label="Main navigation">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/#about">About</a></li>
@@ -78,7 +116,7 @@
     </ul>
   </nav>
 
-  <main class="container">
+  <main class="container" id="main-content">
     <!-- Projects section -->
     <section class="repos" id="repos">
       <h2>Selected GitHub Projects</h2>
