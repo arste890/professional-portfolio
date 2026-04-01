@@ -5,5 +5,4 @@ Allow: /
 # Sitemap location
 Sitemap: https://alecstevens.com/sitemap.xml
 
-# Disallow internal/utility pages
-Disallow: /styleguide
+
