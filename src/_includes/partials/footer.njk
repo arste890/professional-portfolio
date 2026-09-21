@@ -1,0 +1,18 @@
+{% from "partials/icons.njk" import icon %}
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>&copy; <span data-year>{{ buildYear }}</span> {{ site.author.name }} &middot; {{ site.footerTagline }}</p>
+    <ul class="footer__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<button class="to-top" type="button" data-to-top data-visible="false">
+  {{ icon("arrow-up") }}
+  <span class="visually-hidden">Back to top</span>
+</button>

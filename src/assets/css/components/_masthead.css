@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Masthead — portrait, name, credentials
+   ========================================================================== */
+
+.masthead {
+  position: relative;
+  background: var(--surface);
+  border-block-end: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+/* A faint garnet wash bleeding from the top-left, replacing the old
+   grey linear-gradient. Decorative only. */
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -40%;
+  inset-inline-start: -10%;
+  width: 60%;
+  aspect-ratio: 1;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 9%, transparent) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.masthead__inner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(var(--space-6), 4vw, var(--space-12));
+  padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+}
+
+.masthead__portrait {
+  flex-shrink: 0;
+}
+
+.masthead__portrait img {
+  width: clamp(7rem, 14vw, 10rem);
+  height: clamp(7rem, 14vw, 10rem);
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  object-position: center 12%;
+  background: var(--sunken);
+  box-shadow: 0 0 0 1px var(--rule), var(--shadow-md);
+}
+
+.masthead__body {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+.masthead__name {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  color: var(--ink);
+}
+
+.masthead__credentials {
+  margin-block-start: var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--ink-muted);
+}
+
+.masthead__credentials li {
+  position: relative;
+  padding-inline-start: var(--space-5);
+}
+
+.masthead__credentials li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.7em;
+  width: var(--space-3);
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+/* The first credential is the headline one — give it more weight. */
+.masthead__credentials li:first-child {
+  color: var(--ink);
+  font-weight: var(--weight-medium);
+}
+
+.masthead__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-6);
+}

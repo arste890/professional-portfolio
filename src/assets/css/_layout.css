@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: 56rem;
+}
+
+/* Vertical rhythm between top-level page sections. */
+.main {
+  display: flow-root;
+  padding-block: var(--space-16) var(--space-20);
+}
+
+.stack > * + * {
+  margin-block-start: var(--flow, var(--space-4));
+}
+
+/* --- Section -------------------------------------------------------------
+   The editorial identity leans on whitespace and hairline rules rather than
+   the stack of drop-shadowed cards the previous design used.              */
+.section + .section {
+  margin-block-start: var(--space-20);
+}
+
+.section__header {
+  margin-block-end: var(--space-8);
+}
+
+.section__eyebrow {
+  display: block;
+  margin-block-end: var(--space-3);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.section__title {
+  font-size: var(--text-2xl);
+  color: var(--ink);
+}
+
+/* A short accent rule under each section title — the one piece of recurring
+   ornament in the design. */
+.section__title::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-block-start: var(--space-4);
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+
+.section__lede {
+  max-width: var(--measure);
+  margin-block-start: var(--space-4);
+  font-size: var(--text-md);
+  color: var(--ink-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.prose {
+  max-width: var(--measure);
+  color: var(--ink-muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+}
+
+.prose > * + * {
+  margin-block-start: var(--space-5);
+}

@@ -1,0 +1,23 @@
+{
+  "name": "professional-portfolio",
+  "version": "2.0.0",
+  "description": "Professional portfolio of Alec R. Stevens — built with Eleventy.",
+  "type": "module",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "Alec R. Stevens",
+  "homepage": "https://alecstevens.com",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "esbuild": "^0.28.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Design tokens
+   Every colour, type step, space step and motion value in the site resolves
+   to one of these. Nothing below this file hard-codes a hex value.
+   Contrast of each foreground/background pair is verified to WCAG AA or
+   better in both themes.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- Palette: light (default) ----------------------------------------- */
+  --paper: #fbfaf8;          /* page background, warm off-white             */
+  --surface: #ffffff;        /* raised cards                                */
+  --sunken: #f3f0ec;         /* inset panels, accordion bodies              */
+  --ink: #16181d;            /* primary text                     17.0:1     */
+  --ink-muted: #4a4f5a;      /* prose, descriptions               7.9:1     */
+  --ink-subtle: #6b7280;     /* captions, metadata                4.6:1     */
+  --accent: #8f2439;         /* garnet — links, rules, emphasis   8.1:1     */
+  --accent-strong: #6d1b2b;  /* hover / pressed                             */
+  --accent-wash: #f7ecee;    /* tinted backgrounds                          */
+  --on-accent: #ffffff;      /* text on a filled accent surface   8.5:1     */
+  /* Filled surfaces (primary button, skip link) keep white text in BOTH
+     themes, so the control reads the same way on light and dark. `--accent`
+     above is for text, rules and icons, where dark mode needs a light tint
+     instead.                                                               */
+  --accent-solid: #8f2439;       /* white on fill                 8.5:1     */
+  --accent-solid-hover: #6d1b2b;
+  --on-accent-solid: #ffffff;
+  --rule: #e5e1db;           /* hairlines and borders                       */
+  --rule-strong: #d3cdc4;
+
+  --shadow-color: 22 24 29;
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.06);
+  --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.05),
+               0 6px 16px rgb(var(--shadow-color) / 0.06);
+  --shadow-lg: 0 4px 8px rgb(var(--shadow-color) / 0.06),
+               0 16px 40px rgb(var(--shadow-color) / 0.10);
+
+  /* --- Typography -------------------------------------------------------- */
+  /* Serif carries the prose and display; the sans is reserved for interface
+     chrome (nav, buttons, dates, labels) — a deliberate editorial split.    */
+  --font-display: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Fluid type scale, ~1.25 ratio, clamped between 360px and 1280px. */
+  --text-2xs: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-md: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --text-lg: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.32rem + 0.8vw, 1.9rem);
+  --text-2xl: clamp(1.875rem, 1.55rem + 1.4vw, 2.5rem);
+  --text-3xl: clamp(2.25rem, 1.6rem + 2.9vw, 3.75rem);
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-caps: 0.12em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* --- Space ------------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Horizontal page gutter, generous on desktop and tight on phones. */
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  --measure: 68ch;           /* comfortable prose line length               */
+  --content-width: 72rem;
+
+  /* --- Shape ------------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-full: 999rem;
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 380ms;
+
+  /* --- Layering ---------------------------------------------------------- */
+  --z-nav: 100;
+  --z-drawer: 900;
+  --z-floating: 950;
+  --z-modal: 1000;
+  --z-skip: 10000;
+}
+
+/* --- Palette: dark ------------------------------------------------------- */
+/* Applied either by explicit user choice (data-theme) or by system
+   preference when the user has not chosen. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #101216;
+  --surface: #171a20;
+  --sunken: #1d2128;
+  --ink: #e9e7e3;            /* 15.2:1 */
+  --ink-muted: #a8adb8;      /*  8.3:1 */
+  --ink-subtle: #8b909c;
+  --accent: #e8919f;         /*  8.0:1 */
+  --accent-strong: #f3b2bc;
+  --accent-wash: #2a1a1f;
+  --on-accent: #101216;      /*  8.0:1 */
+  --accent-solid: #b3344c;       /* white on fill                 6.0:1 */
+  --accent-solid-hover: #c9455f; /* white on fill                 4.7:1 */
+  --on-accent-solid: #ffffff;
+  --rule: #2a2e37;
+  --rule-strong: #3a3f4a;
+
+  --shadow-color: 0 0 0;
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.30);
+  --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.30),
+               0 6px 16px rgb(var(--shadow-color) / 0.36);
+  --shadow-lg: 0 4px 8px rgb(var(--shadow-color) / 0.34),
+               0 16px 40px rgb(var(--shadow-color) / 0.46);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --paper: #101216;
+    --surface: #171a20;
+    --sunken: #1d2128;
+    --ink: #e9e7e3;
+    --ink-muted: #a8adb8;
+    --ink-subtle: #8b909c;
+    --accent: #e8919f;
+    --accent-strong: #f3b2bc;
+    --accent-wash: #2a1a1f;
+    --on-accent: #101216;
+    --accent-solid: #b3344c;
+    --accent-solid-hover: #c9455f;
+    --on-accent-solid: #ffffff;
+    --rule: #2a2e37;
+    --rule-strong: #3a3f4a;
+
+    --shadow-color: 0 0 0;
+    --shadow-sm: 0 1px 2px rgb(var(--shadow-color) / 0.30);
+    --shadow-md: 0 2px 4px rgb(var(--shadow-color) / 0.30),
+                 0 6px 16px rgb(var(--shadow-color) / 0.36);
+    --shadow-lg: 0 4px 8px rgb(var(--shadow-color) / 0.34),
+                 0 16px 40px rgb(var(--shadow-color) / 0.46);
+  }
+}

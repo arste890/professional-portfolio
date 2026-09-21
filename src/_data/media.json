@@ -1,0 +1,59 @@
+[
+  {
+    "type": "image",
+    "src": "/images/Headshot.jpg",
+    "alt": "Alec Stevens Utah pre-medical student and University of Utah student leader headshot",
+    "title": "Professional Headshot",
+    "caption": "Formal portrait for academic and professional presentations.",
+    "description": "Formal portrait for academic and professional presentations."
+  },
+  {
+    "type": "image",
+    "src": "/images/profile-headshot.jpg",
+    "alt": "Alec Stevens professional headshot - pre-medical student, pianist, and researcher at University of Utah, Salt Lake City",
+    "title": "Alec Stevens - Professional Headshot",
+    "caption": "Black and white professional profile portrait for academic and formal presentations.",
+    "description": "Black and white professional profile portrait of Alec Stevens, pre-medical student, pianist, and higher education leader at the University of Utah in Salt Lake City, Utah."
+  },
+  {
+    "type": "image",
+    "src": "/images/presidential-intern-headshot.jpg",
+    "alt": "Alec Stevens Presidential Intern at University of Utah headshot",
+    "title": "Presidential Intern Headshot",
+    "caption": "Professional headshot for Presidential Internship in Higher Education Leadership at the University of Utah.",
+    "description": "Professional headshot for Presidential Internship in Higher Education Leadership at the University of Utah."
+  },
+  {
+    "type": "video",
+    "src": "/videos/Schumann, Intermezzo, Carnival Scenes from Vienna.mp4",
+    "alt": "Alec Stevens Utah pianist performing classical repertoire - Schumann Intermezzo",
+    "title": "Schumann: Intermezzo",
+    "modalTitle": "Schumann: Intermezzo from Carnival Scenes",
+    "caption": "Piano performance of Schumann's Intermezzo from Carnival Scenes from Vienna.",
+    "description": "Piano performance of Schumann's Intermezzo from Carnival Scenes from Vienna."
+  },
+  {
+    "type": "instagram-single",
+    "src": "/images/instagram/ig.media.2025-11-28-21-14-25_0.jpg",
+    "alt": "Alec Stevens Presidential Intern in Health Sciences at University of Utah",
+    "instagramUrl": "https://www.instagram.com/p/DPz0mOmjK7t/",
+    "title": "Presidential Intern - Health Sciences",
+    "caption": "Serving as a Presidential Intern in the Office of the Senior Vice President of Health Sciences at University of Utah Health, gaining experience in healthcare administration.",
+    "description": "Serving as a 2025-26 Presidential Intern in the Office of the Senior Vice President of Health Sciences at University of Utah Health. This position provides hands-on experience in healthcare administration and academic medical center leadership while developing strategic skills in one of the nation's leading health sciences institutions."
+  },
+  {
+    "type": "instagram-carousel",
+    "src": "/images/instagram/ig.media.2025-11-28-21-13-41_3.jpg",
+    "alt": "Alec Stevens with Presidential Interns at University of Utah potluck dinner",
+    "instagramUrl": "https://www.instagram.com/p/DQqWDIukV5-/?img_index=1",
+    "title": "Presidential Intern Potluck Dinner",
+    "caption": "Featured in University of Utah President's Instagram post about hosting Presidential Interns for a community potluck dinner. Performed a piano recital for President Taylor Randall and fellow interns.",
+    "description": "Featured in University of Utah President's Instagram post about hosting Presidential Interns for a community potluck dinner. Performed a piano recital for President Taylor Randall and fellow interns, demonstrating how vibrant communities come together through shared talents and experiences.",
+    "slides": [
+      "/images/instagram/ig.media.2025-11-28-21-13-41_3.jpg",
+      "/images/instagram/ig.media.2025-11-28-21-13-44_1.mp4",
+      "/images/instagram/ig.media.2025-11-28-21-13-37_2.jpg",
+      "/images/instagram/ig.media.2025-11-28-21-13-33_0.jpg"
+    ]
+  }
+]

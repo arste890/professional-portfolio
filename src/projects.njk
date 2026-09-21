@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+permalink: /projects.html
+navKey: projects
+title: Projects | Alec Stevens - Utah Pre-Medical Student & Developer
+description: Explore Alec Stevens' academic and development projects. Utah-based pre-medical student at the University of Utah showcasing GitHub repositories and technical work.
+keywords: Alec Stevens projects, GitHub, University of Utah, developer, pre-medical student, Alec R Stevens
+canonical: https://alecstevens.com/projects
+schema:
+  - "@context": https://schema.org
+    "@type": CollectionPage
+    name: Projects - Alec Stevens
+    description: A curated selection of Alec Stevens' public GitHub repositories and academic projects.
+    url: https://alecstevens.com/projects
+    isPartOf:
+      "@type": WebSite
+      name: Alec Stevens Portfolio
+      url: https://alecstevens.com
+  - "@context": https://schema.org
+    "@type": BreadcrumbList
+    itemListElement:
+      - "@type": ListItem
+        position: 1
+        name: Home
+        item: https://alecstevens.com/
+      - "@type": ListItem
+        position: 2
+        name: Projects
+        item: https://alecstevens.com/projects
+---
+{% from "partials/icons.njk" import icon %}
+<div class="container">
+  <section class="section" aria-labelledby="projects-title">
+    <div class="section__header">
+      <span class="section__eyebrow">Projects</span>
+      <h1 class="section__title" id="projects-title">Selected Projects</h1>
+      <p class="section__lede">A curated selection of my public repositories and technical work.</p>
+    </div>
+
+    {#
+      Rendered from src/_data/projects.json at build time. The previous page
+      fetched the whole GitHub repo list on every visit only to pick one entry
+      out of it, which cost a round trip, showed "Loading repositories…" on
+      first paint, and left the section empty whenever the API rate-limited an
+      anonymous caller.
+    #}
+    <div class="projects">
+      {%- for project in projects %}
+      <article class="project">
+        <h2 class="project__name">
+          <a href="{{ project.repo }}" target="_blank" rel="noopener noreferrer">{{ project.name }}</a>
+        </h2>
+        <p class="project__description">{{ project.description }}</p>
+        <div class="project__links">
+          <a href="{{ project.repo }}" target="_blank" rel="noopener noreferrer">
+            {{ icon("github") }} Repository
+          </a>
+          {%- if project.demo %}
+          <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">
+            {{ icon("external") }} Live site
+          </a>
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+</div>

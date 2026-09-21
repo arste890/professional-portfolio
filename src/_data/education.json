@@ -1,0 +1,51 @@
+[
+  {
+    "degree": "Honors Bachelor of Science, Biological Chemistry",
+    "date": "Aug 2022 - May 2026",
+    "institution": "University of Utah",
+    "logo": { "src": "/images/utah-utes-logo.png", "alt": "University of Utah logo", "width": 160, "height": 160 }
+  },
+  {
+    "degree": "Bachelor of Music, Piano",
+    "date": "Aug 2022 - May 2026",
+    "institution": "University of Utah",
+    "logo": { "src": "/images/utah-utes-logo.png", "alt": "University of Utah logo", "width": 160, "height": 160 }
+  },
+  {
+    "degree": "Non-Degree Seeking",
+    "date": "May 2024, May 2025 - May 2026",
+    "institution": "Utah Valley University",
+    "logo": { "src": "/images/uvu-logo.png", "alt": "Utah Valley University logo", "width": 160, "height": 48 }
+  },
+  {
+    "degree": "Non-Degree Seeking",
+    "date": "May 2024",
+    "institution": "Brigham Young University",
+    "logo": { "src": "/images/byu-logo.png", "alt": "Brigham Young University logo", "width": 160, "height": 90 }
+  },
+  {
+    "degree": "Diploma Program",
+    "date": "Aug 2020 - May 2022",
+    "institution": "International Baccalaureate",
+    "logo": { "src": "/images/ib-logo.png", "alt": "International Baccalaureate logo", "width": 160, "height": 160 }
+  },
+  {
+    "degree": "High School Diploma",
+    "date": "Aug 2018 - May 2022",
+    "institution": "Skyline High School",
+    "logo": {
+      "src": "/images/logo_outline-160x70.png",
+      "alt": "Skyline High School Utah logo",
+      "width": 160,
+      "height": 70,
+      "webp": "/images/logo_outline-160x70.webp",
+      "webp2x": "/images/logo_outline-320x140.webp",
+      "png2x": "/images/logo_outline-320x140.png"
+    },
+    "award": {
+      "name": "Skyline Eagles RISE Award",
+      "heading": "Award Requirements",
+      "body": "\"The process to be selected for the Eagles RISE award is a long one. Beginning in January, teachers, administrators, counselors, coaches, and staff select students whom they believe would best represent the award. Unlike other awards in which mathematical equations determine who wins which awards, the Eagles RISE awards are far more intense. A committee meets with each nominating teacher, interviewing them on why that student should win the award. These interviews with each nominator helped point out how students best exemplify resilience, integrity, support, and excellence. The students' other teachers are then interviewed, as well as applicable staff. Finally, three separate committees select which fifteen students should be awarded this honor. This means that out of over a hundred nominees, you were selected through this rigorous process as one of only fifteen award winners.\""
+    }
+  }
+]

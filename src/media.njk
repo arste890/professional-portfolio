@@ -1,0 +1,117 @@
+---
+layout: layouts/base.njk
+permalink: /media.html
+navKey: media
+title: Media & Piano Performance | Alec Stevens - Utah Classical Pianist
+description: Explore Alec Stevens' classical piano performances and professional media. Utah-based pianist and University of Utah music student showcasing repertoire and recitals.
+keywords: Alec Stevens piano, classical piano performance Utah, University of Utah pianist, piano recital, Schumann piano, Alec R Stevens media
+canonical: https://alecstevens.com/media
+schema:
+  - "@context": https://schema.org
+    "@type": CollectionPage
+    name: Media & Piano Performance - Alec Stevens
+    description: A collection of professional photographs and classical piano performance recordings by Alec Stevens.
+    url: https://alecstevens.com/media
+    isPartOf:
+      "@type": WebSite
+      name: Alec Stevens Portfolio
+      url: https://alecstevens.com
+    mainEntity:
+      "@type": ImageObject
+      name: Alec Stevens Professional Headshot
+      description: Black and white professional profile portrait of Alec Stevens, pre-medical student, pianist, researcher, and higher education leader at the University of Utah in Salt Lake City, Utah.
+      contentUrl: https://alecstevens.com/images/profile-headshot.jpg
+      url: https://alecstevens.com/media
+      thumbnail: https://alecstevens.com/images/profile-headshot.jpg
+      representativeOfPage: true
+      creator:
+        "@type": Person
+        name: Alec R. Stevens
+        url: https://alecstevens.com
+      copyrightHolder:
+        "@type": Person
+        name: Alec R. Stevens
+      keywords:
+        - Alec Stevens
+        - Alec R Stevens
+        - professional headshot
+        - pre-medical student
+        - University of Utah
+        - pianist
+        - researcher
+        - Utah
+        - Salt Lake City
+        - biochemistry student
+        - higher education leader
+  - "@context": https://schema.org
+    "@type": BreadcrumbList
+    itemListElement:
+      - "@type": ListItem
+        position: 1
+        name: Home
+        item: https://alecstevens.com/
+      - "@type": ListItem
+        position: 2
+        name: Media
+        item: https://alecstevens.com/media
+---
+{% from "partials/icons.njk" import icon %}
+<div class="container">
+  <section class="section" aria-labelledby="media-title">
+    <div class="section__header">
+      <span class="section__eyebrow">Media</span>
+      <h1 class="section__title" id="media-title">Media &amp; Piano Performance</h1>
+      <p class="section__lede">A collection of professional photographs and classical piano performance recordings by Alec Stevens.</p>
+    </div>
+
+    <div class="media-grid">
+      {%- for item in media %}
+      <button class="media-tile" type="button" data-media-index="{{ loop.index0 }}" aria-haspopup="dialog">
+        <span class="media-tile__frame">
+          {%- if item.type == "video" %}
+          <video src="{{ item.src }}" muted preload="metadata" playsinline title="{{ item.alt }}"></video>
+          <span class="media-tile__play">{{ icon("play") }}</span>
+          {%- else %}
+          <img src="{{ item.src }}" alt="{{ item.alt }}" loading="lazy" decoding="async">
+          {%- endif %}
+          {%- if item.slides %}
+          <span class="media-tile__badge">{{ icon("layers") }}1/{{ item.slides | length }}</span>
+          {%- endif %}
+        </span>
+        <span class="media-tile__caption">
+          <span class="media-tile__title">{{ item.title }}</span>
+          <span class="media-tile__text">{{ item.caption }}</span>
+        </span>
+      </button>
+      {%- endfor %}
+    </div>
+  </section>
+</div>
+
+{#
+  The lightbox reads this manifest instead of parsing data-* attributes off
+  each tile, so captions containing quotes or angle brackets cannot break the
+  surrounding markup.
+#}
+<script type="application/json" data-media-manifest>{{ media | jsonify | safe }}</script>
+
+<dialog class="dialog" id="media-dialog" aria-labelledby="media-dialog-title">
+  <button class="dialog__close" type="button" data-dialog-close>
+    {{ icon("close") }}
+    <span class="visually-hidden">Close</span>
+  </button>
+  <div class="dialog__scroll" data-dialog-scroll>
+    <div class="dialog__stage">
+      <div class="dialog__media" data-dialog-media></div>
+      <button class="dialog__nav dialog__nav--prev" type="button" data-dialog-prev>
+        {{ icon("arrow-left") }}
+        <span class="visually-hidden">Previous item</span>
+      </button>
+      <button class="dialog__nav dialog__nav--next" type="button" data-dialog-next>
+        {{ icon("arrow-right") }}
+        <span class="visually-hidden">Next item</span>
+      </button>
+    </div>
+    <div class="dialog__body" data-dialog-body></div>
+  </div>
+</dialog>

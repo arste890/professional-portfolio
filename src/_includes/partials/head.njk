@@ -1,0 +1,70 @@
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  {%- if keywords %}
+  <meta name="keywords" content="{{ keywords }}">
+  {%- endif %}
+  <link rel="canonical" href="{{ canonical or (page.url | absoluteUrl(site.url)) }}">
+  {%- if noindex %}
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  {%- endif %}
+
+  <!-- Security headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Theme colour follows the active palette so mobile browser chrome matches -->
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101216" media="(prefers-color-scheme: dark)">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:url" content="{{ canonical or (page.url | absoluteUrl(site.url)) }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ site.socialImage | absoluteUrl(site.url) }}">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ canonical or (page.url | absoluteUrl(site.url)) }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ site.socialImage | absoluteUrl(site.url) }}">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Fonts: two variable faces, preconnected and swapped so text paints immediately -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  {#
+    Applies the stored theme before first paint. Inlined and synchronous on
+    purpose: loading this from the bundle would let the default palette paint
+    first and flash.
+  #}
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+
+  <script type="module" src="/assets/js/main.js"></script>
+
+  {%- for item in schema %}
+  <script type="application/ld+json">
+{{ item | jsonify | safe }}
+  </script>
+  {%- endfor %}

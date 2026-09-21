@@ -1,0 +1,270 @@
+/* ==========================================================================
+   Dialog
+
+   Built on the native <dialog> element, which gives focus trapping, inert
+   background, Escape-to-close and the ::backdrop pseudo-element for free.
+   The previous build hand-rolled all of this with display:none divs and
+   never trapped focus.
+   ========================================================================== */
+
+.dialog {
+  /* Restores the centring the UA gives <dialog>, which the global
+     `* { margin: 0 }` reset would otherwise strip, leaving modals pinned to
+     the top-left corner. */
+  margin: auto;
+  width: min(64rem, calc(100vw - 2 * var(--gutter)));
+  max-width: none;
+  max-height: min(88vh, 60rem);
+  padding: 0;
+  overflow: hidden;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.dialog--prose {
+  width: min(42rem, calc(100vw - 2 * var(--gutter)));
+}
+
+/* In a text-only dialog the close button floats over the body, so the title
+   needs room to avoid running underneath it. */
+.dialog--prose .dialog__title {
+  padding-inline-end: var(--space-12);
+}
+
+.dialog::backdrop {
+  background: color-mix(in srgb, #05070a 76%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.dialog[open] {
+  animation: dialog-in var(--duration-base) var(--ease-out);
+}
+
+.dialog[open]::backdrop {
+  animation: backdrop-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(0.75rem) scale(0.99); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .dialog[open]::backdrop {
+    animation: none;
+  }
+}
+
+.dialog__scroll {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.dialog__close {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, #05070a 58%, transparent);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.dialog__close:hover {
+  background: color-mix(in srgb, #05070a 82%, transparent);
+}
+
+.dialog__close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* --- Media area -----------------------------------------------------------
+   The stage is the positioning context for the paging buttons, which must
+   live outside `.dialog__media` because that slot is cleared on every
+   navigation.                                                             */
+.dialog__stage {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.dialog__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #05070a;
+  min-height: 12rem;
+}
+
+.dialog__media img,
+.dialog__media video {
+  width: auto;
+  max-width: 100%;
+  max-height: min(66vh, 40rem);
+  object-fit: contain;
+}
+
+.dialog__media iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+/* --- Caption -------------------------------------------------------------- */
+.dialog__body {
+  padding: var(--space-6);
+}
+
+.dialog__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--ink);
+}
+
+.dialog__subtitle {
+  margin-block-start: var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.dialog__text {
+  margin-block-start: var(--space-3);
+  max-width: var(--measure);
+  color: var(--ink-muted);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+.dialog__footer {
+  margin-block-start: var(--space-6);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--rule);
+}
+
+/* --- Gallery paging ------------------------------------------------------- */
+.dialog__nav {
+  position: absolute;
+  inset-block-start: 50%;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, #05070a 58%, transparent);
+  color: #fff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.dialog__nav:hover {
+  background: color-mix(in srgb, #05070a 85%, transparent);
+}
+
+.dialog__nav[hidden] {
+  display: none;
+}
+
+.dialog__nav--prev { inset-inline-start: var(--space-3); }
+.dialog__nav--next { inset-inline-end: var(--space-3); }
+
+.dialog__nav svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* --- Carousel ------------------------------------------------------------- */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel__slide {
+  display: none;
+  place-items: center;
+}
+
+.carousel__slide[data-active="true"] {
+  display: grid;
+}
+
+.carousel__dots {
+  position: absolute;
+  inset-block-end: var(--space-4);
+  inset-inline: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.carousel__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, #fff 45%, transparent);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.carousel__dot[aria-current="true"] {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+/* Enlarge the hit area without enlarging the visible dot. */
+.carousel__dot::before {
+  content: "";
+  position: absolute;
+  inset: -0.6rem;
+}
+
+.carousel__dot {
+  position: relative;
+}
+
+@media (max-width: 40em) {
+  .dialog {
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100dvh;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .dialog__media img,
+  .dialog__media video {
+    max-height: 56vh;
+  }
+}
