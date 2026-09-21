@@ -54,9 +54,20 @@
   min-width: 0;
 }
 
+/*
+  The name is an <h1> on the home page and a <p> elsewhere, so that every
+  page keeps exactly one <h1> for its own title. This class therefore states
+  its full typography rather than inheriting it from the `h1, h2, h3, h4`
+  rule — otherwise the <p> variant picks up the relaxed body line-height and
+  the masthead renders ~36px taller on every page but the home page.
+*/
 .masthead__name {
+  font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
   color: var(--ink);
 }
 

@@ -45,8 +45,18 @@
   color: var(--accent);
 }
 
+/*
+  Rendered as <h1> on pages whose subject is the section itself (Media,
+  Projects) and as <h2> on the home page, where the <h1> is the name. Like
+  .masthead__name, it states its own typography so the two never diverge.
+*/
 .section__title {
+  font-family: var(--font-display);
   font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
   color: var(--ink);
 }
 
