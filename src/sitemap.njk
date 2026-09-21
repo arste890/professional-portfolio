@@ -1,0 +1,21 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: false
+---
+{%- set indexed = [] -%}
+{%- for item in collections.all -%}
+  {%- if item.data.canonical and not item.data.noindex -%}
+    {%- set indexed = (indexed.push(item), indexed) -%}
+  {%- endif -%}
+{%- endfor -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in indexed %}
+  <url>
+    <loc>{{ item.data.canonical }}</loc>
+    <lastmod>{{ buildDate | isoDate }}</lastmod>
+    <changefreq>{{ item.data.changefreq or "monthly" }}</changefreq>
+    <priority>{{ item.data.priority or "0.8" }}</priority>
+  </url>
+{%- endfor %}
+</urlset>

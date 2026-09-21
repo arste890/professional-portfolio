@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Primary navigation
+
+   Desktop: a sticky, horizontally scrollable bar.
+   Mobile:  an off-canvas drawer driven by [aria-expanded] on the toggle,
+            so the visual state and the accessibility state can never drift
+            apart (the previous build tracked them with two separate
+            `.active` classes).
+   ========================================================================== */
+
+.nav {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-nav);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-block-end: 1px solid var(--rule);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--nav-height, 4rem);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.nav__link {
+  position: relative;
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--ink-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.nav__link:hover {
+  color: var(--ink);
+  background: var(--sunken);
+}
+
+.nav__link[aria-current] {
+  color: var(--accent);
+  font-weight: var(--weight-semibold);
+}
+
+.nav__link[aria-current]::after {
+  content: "";
+  position: absolute;
+  inset-inline: var(--space-3);
+  inset-block-end: -1px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+
+.nav__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  /* Must sit above the open drawer, which is a sibling in the same stacking
+     context — otherwise the close button is buried under the overlay it is
+     supposed to dismiss. */
+  position: relative;
+  z-index: var(--z-floating);
+}
+
+/* --- Icon buttons (theme toggle, drawer toggle) -------------------------- */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.icon-button:hover {
+  background: var(--sunken);
+  color: var(--ink);
+}
+
+.icon-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* The theme toggle shows one icon per theme; the inactive one is removed
+   from the box entirely so the button never jumps. */
+.theme-toggle__sun,
+.theme-toggle__moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__sun {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-toggle__moon {
+  display: block;
+}
+
+:root:not([data-theme]) .theme-toggle__moon {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .theme-toggle__moon {
+    display: none;
+  }
+
+  :root:not([data-theme]) .theme-toggle__sun {
+    display: block;
+  }
+}
+
+/* --- Drawer toggle (hamburger) ------------------------------------------ */
+.nav__toggle {
+  display: none;
+}
+
+.nav__toggle-bars {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 0.75rem;
+}
+
+.nav__toggle-bars span {
+  position: absolute;
+  inset-inline: 0;
+  height: 1.5px;
+  background: currentcolor;
+  border-radius: var(--radius-full);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav__toggle-bars span:nth-child(1) { inset-block-start: 0; }
+.nav__toggle-bars span:nth-child(2) { inset-block-start: 50%; transform: translateY(-50%); }
+.nav__toggle-bars span:nth-child(3) { inset-block-end: 0; }
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bars span:nth-child(1) {
+  transform: translateY(0.375rem) rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bars span:nth-child(3) {
+  transform: translateY(-0.375rem) rotate(-45deg);
+}
+
+/* --- Mobile drawer ------------------------------------------------------- */
+@media (max-width: 52em) {
+  /*
+    `backdrop-filter` makes an element a containing block for its
+    position:fixed descendants, which would trap the drawer inside the nav
+    bar's own box instead of letting it cover the viewport. At this width the
+    bar is opaque instead, so the blur is not needed.
+  */
+  .nav {
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+
+  .nav__toggle {
+    display: inline-flex;
+  }
+
+  .nav__menu {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-drawer);
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--paper) 97%, transparent);
+    backdrop-filter: blur(16px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--duration-base) var(--ease-out),
+      visibility var(--duration-base) var(--ease-out);
+  }
+
+  .nav__menu[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: var(--space-2);
+    overflow: visible;
+    text-align: center;
+  }
+
+  .nav__link {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-lg);
+    font-family: var(--font-display);
+  }
+
+  .nav__link[aria-current]::after {
+    inset-inline: var(--space-6);
+  }
+}

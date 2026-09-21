@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+permalink: /calculus-and-musical-consonance/index.html
+title: The Applications of the Calculus to the Mathematics of Musical Consonance | Alec Stevens
+description: Alec Stevens' monograph on the applications of the calculus to the mathematics of musical consonance and dissonance.
+canonical: https://alecstevens.com/calculus-and-musical-consonance/
+ogType: article
+noindex: true
+schema:
+  - "@context": https://schema.org
+    "@type": ScholarlyArticle
+    headline: The Applications of the Calculus to the Mathematics of Musical Consonance
+    author:
+      "@type": Person
+      name: Alec R. Stevens
+      url: https://alecstevens.com
+    datePublished: "2021-05-01"
+    description: A mathematically rigorous account of the relationship between calculus and the perception of musical consonance and dissonance.
+    abstract: "The present treatise develops a mathematically rigorous account of the relationship between the calculus and the perception of musical consonance and dissonance. The investigation proceeds from a single governing question: by what mathematical structures may the perceived ordering of musical intervals from consonant to dissonant be characterized, and to what extent does that ordering admit principled derivation from the apparatus of differential and integral calculus?"
+    url: https://alecstevens.com/calculus-and-musical-consonance/
+    inLanguage: en
+---
+{% from "partials/icons.njk" import icon %}
+<div class="container container--narrow">
+  <article>
+    <div class="article__hero">
+      <div>
+        <span class="section__eyebrow">Direct-link only portfolio entry</span>
+        <h1 class="article__title">The Applications of the Calculus to the Mathematics of Musical Consonance</h1>
+        <p class="article__lede">
+          A monograph in mathematical acoustics by Alec R. Stevens, exploring the calculus
+          behind consonance, dissonance, harmonics, and Fourier analysis.
+        </p>
+
+        <dl class="article__meta">
+          <dt>Type</dt>
+          <dd>Monograph in Mathematical Acoustics</dd>
+          <dt>Date</dt>
+          <dd><time datetime="2021-05">May 2021</time></dd>
+          <dt>Author</dt>
+          <dd>Alec R. Stevens</dd>
+        </dl>
+
+        <div class="article__actions">
+          <a class="button button--primary" href="./thesis.pdf" target="_blank" rel="noopener noreferrer">
+            {{ icon("document", "button__icon") }}
+            Open PDF
+          </a>
+          <a class="button button--secondary" href="/">Back to home</a>
+        </div>
+      </div>
+
+      <aside class="article__aside">
+        <h2>Overview</h2>
+        <p>
+          This thesis develops a mathematically rigorous account of the relationship between
+          calculus and the perception of musical consonance and dissonance. It treats equal
+          temperament, sinusoidal pressure, harmonic structure, and Fourier decomposition as
+          the main analytic tools.
+        </p>
+      </aside>
+    </div>
+
+    <section class="article__section article__abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>
+        The present treatise develops a mathematically rigorous account of the relationship between
+        the calculus and the perception of musical consonance and dissonance. The investigation
+        proceeds from a single governing question: by what mathematical structures may the perceived
+        ordering of musical intervals from consonant to dissonant be characterized, and to what extent
+        does that ordering admit principled derivation from the apparatus of differential and integral
+        calculus? The analysis is organized around four analytical instruments: the geometric sequence
+        underlying twelve-tone equal temperament, the definite integral of the sinusoidal pressure
+        waveform, the divergent series of integer-multiple harmonics that constitutes the spectrum of
+        an idealized vibrating string, and the Fourier decomposition that connects time-domain
+        waveforms to their spectral content.
+      </p>
+      <p>
+        The treatment begins with a corrected formulation of the equal-tempered frequency relation,
+        which is shown to be a geometric sequence rather than a geometric series, and traces the
+        consequences of that distinction for the analytic description of pitch. It then examines the
+        integral of one positive half-cycle of the sinusoidal pressure waveform, demonstrating that the
+        ratio of such integrals between octave-related notes recovers, but does not exceed, the ordinary
+        inverse relationship between frequency and wavelength. The harmonic series of overtones is then
+        introduced, and its mathematical properties are examined as they bear upon the perceived sonority
+        of a single note. Fourier analysis is then introduced as the canonical framework within which
+        timbre is decomposed and within which the heuristic observations of music theory are placed into
+        a quantitative setting.
+      </p>
+    </section>
+
+    <section class="article__section" aria-labelledby="pdf-title">
+      <div class="article__viewer-head">
+        <h2 id="pdf-title">PDF preview</h2>
+        <a href="./thesis.pdf" target="_blank" rel="noopener noreferrer">Download</a>
+      </div>
+      <iframe
+        class="article__viewer"
+        src="./thesis.pdf#view=FitH"
+        title="The Applications of the Calculus to the Mathematics of Musical Consonance — PDF preview"
+        loading="lazy"></iframe>
+    </section>
+  </article>
+</div>

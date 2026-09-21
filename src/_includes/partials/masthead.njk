@@ -1,0 +1,48 @@
+{% from "partials/icons.njk" import icon %}
+<header class="masthead">
+  <div class="container masthead__inner">
+    <div class="masthead__portrait">
+      <picture>
+        <source type="image/webp" srcset="{{ site.portrait.webp320 }} 1x, {{ site.portrait.webp640 }} 2x">
+        <source type="image/jpeg" srcset="{{ site.portrait.jpg320 }} 1x, {{ site.portrait.jpg640 }} 2x">
+        <img
+          src="{{ site.portrait.jpg320 }}"
+          alt="{{ site.portrait.alt }}"
+          width="{{ site.portrait.width }}"
+          height="{{ site.portrait.height }}"
+          {% if page.url == "/" %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+          decoding="async">
+      </picture>
+    </div>
+
+    <div class="masthead__body">
+      {#
+        The name is the document's <h1> on the home page only. Every other
+        page owns its own <h1>, so here the name drops to a <p> styled the
+        same way — one h1 per document.
+      #}
+      {% if isHome %}
+      <h1 class="masthead__name">{{ site.author.name }}</h1>
+      {% else %}
+      <p class="masthead__name">{{ site.author.name }}</p>
+      {% endif %}
+
+      <ul class="masthead__credentials">
+        {%- for line in site.author.credentials %}
+        <li>{{ line }}</li>
+        {%- endfor %}
+      </ul>
+
+      <div class="masthead__actions">
+        <a class="button button--primary" href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">
+          {{ icon("linkedin", "button__icon") }}
+          LinkedIn
+        </a>
+        <a class="button button--secondary" href="{{ site.author.github }}" target="_blank" rel="noopener noreferrer">
+          {{ icon("github", "button__icon") }}
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

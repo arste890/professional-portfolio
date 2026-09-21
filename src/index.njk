@@ -1,0 +1,181 @@
+---
+layout: layouts/base.njk
+permalink: /index.html
+isHome: true
+navKey: home
+title: Alec Stevens | Utah Pre-Medical Student, Researcher, Pianist, and Higher Education Leader
+description: Alec Stevens is a pre-medical student, pianist, researcher, and higher education leader based in Utah. Explore his academic work in biochemistry, leadership roles at the University of Utah, community service, music performance, and professional portfolio.
+keywords: Alec Stevens, Alec R Stevens, pre-medical student Utah, University of Utah, biochemistry, classical pianist, researcher, higher education leader, piano performance, Salt Lake City
+canonical: https://alecstevens.com/
+priority: "1.0"
+changefreq: monthly
+schema:
+  - "@context": https://schema.org/
+    "@type": Person
+    name: Alec R. Stevens
+    alternateName:
+      - Alec Stevens
+      - Alec R Stevens
+    url: https://alecstevens.com
+    image: https://alecstevens.com/images/profile-headshot.jpg
+    jobTitle: Pre-Medical Student, Biochemist, Researcher, Pianist
+    alumniOf:
+      - "@type": CollegeOrUniversity
+        name: University of Utah
+        url: https://www.utah.edu
+    sameAs:
+      - https://github.com/arste890
+      - https://www.linkedin.com/in/arste890/
+    description: Alec R. Stevens (Alec Stevens) is a pre-medical student, pianist, researcher, and higher education leader based in Utah. His work spans biochemistry, quantitative research, classical piano performance, and student leadership at the University of Utah.
+    knowsAbout:
+      - Biochemistry
+      - Classical Piano
+      - Higher Education Leadership
+      - Antibiotic Research
+      - Music Performance
+    address:
+      "@type": PostalAddress
+      addressRegion: UT
+      addressCountry: US
+  - "@context": https://schema.org
+    "@type": WebSite
+    name: Alec Stevens Portfolio
+    url: https://alecstevens.com
+    description: Professional portfolio of Alec R. Stevens — pre-medical student, pianist, researcher, and higher education leader at the University of Utah.
+  - "@context": https://schema.org
+    "@type": BreadcrumbList
+    itemListElement:
+      - "@type": ListItem
+        position: 1
+        name: Home
+        item: https://alecstevens.com/
+---
+{% from "partials/icons.njk" import icon %}
+<div class="container">
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="section__header">
+      <span class="section__eyebrow">About</span>
+      <h2 class="section__title" id="about-title">About Alec Stevens</h2>
+    </div>
+    <div class="prose">
+      <p>My long-term aspiration is to enter the field of medicine, integrating compassionate care, interdisciplinary reasoning, and ethical leadership. I am committed to leveraging my dual-degree background in Biological Chemistry and Piano to approach challenges with both analytical precision and creative problem-solving.</p>
+      <p>I aim to contribute to advancements in healthcare by combining my scientific expertise with a deep understanding of the human experience, fostering innovation and empathy in equal measure.</p>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="section__header">
+      <span class="section__eyebrow">Experience</span>
+      <h2 class="section__title" id="experience-title">Academic &amp; Research Experience</h2>
+      <p class="section__lede">Roles across university administration, health sciences, student government, and laboratory research. Select a role to read more.</p>
+    </div>
+    <div class="entries">
+      {%- for job in experience %}
+      <article class="entry">
+        <h3 class="entry__heading">
+          <button class="entry__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="experience-panel-{{ loop.index }}">
+            <span class="entry__title">{{ job.title }}</span>
+            <span class="entry__date">{{ job.date }}</span>
+            <span class="entry__indicator" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="entry__panel" id="experience-panel-{{ loop.index }}" data-open="false">
+          <div class="entry__panel-inner">
+            <p class="entry__body">{{ job.description }}</p>
+          </div>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="section" id="education" aria-labelledby="education-title">
+    <div class="section__header">
+      <span class="section__eyebrow">Education</span>
+      <h2 class="section__title" id="education-title">Education</h2>
+    </div>
+    <div class="education">
+      {%- for item in education %}
+      <article class="education__item">
+        <div class="education__logo">
+          {%- if item.logo.webp %}
+          <picture>
+            <source type="image/webp" srcset="{{ item.logo.webp }} 1x, {{ item.logo.webp2x }} 2x">
+            <source type="image/png" srcset="{{ item.logo.src }} 1x, {{ item.logo.png2x }} 2x">
+            <img src="{{ item.logo.src }}" alt="{{ item.logo.alt }}" width="{{ item.logo.width }}" height="{{ item.logo.height }}" loading="lazy" decoding="async">
+          </picture>
+          {%- else %}
+          <img src="{{ item.logo.src }}" alt="{{ item.logo.alt }}" width="{{ item.logo.width }}" height="{{ item.logo.height }}" loading="lazy" decoding="async">
+          {%- endif %}
+        </div>
+        <div class="education__content">
+          <h3 class="education__degree">{{ item.degree }}</h3>
+          <p class="education__institution">{{ item.institution }}</p>
+          <span class="education__date">{{ item.date }}</span>
+          {%- if item.award %}
+          <button class="education__award" type="button" data-dialog-open="award-dialog">{{ item.award.name }}</button>
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="section" id="volunteer" aria-labelledby="volunteer-title">
+    <div class="section__header">
+      <span class="section__eyebrow">Service</span>
+      <h2 class="section__title" id="volunteer-title">Leadership &amp; Service</h2>
+      <p class="section__lede">Student governance, arts advocacy, and community health work. Select a role to read more.</p>
+    </div>
+    <div class="entries">
+      {%- for job in volunteer %}
+      <article class="entry">
+        <h3 class="entry__heading">
+          <button class="entry__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="volunteer-panel-{{ loop.index }}">
+            <span class="entry__title">{{ job.title }}</span>
+            <span class="entry__date">{{ job.date }}</span>
+            <span class="entry__indicator" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="entry__panel" id="volunteer-panel-{{ loop.index }}" data-open="false">
+          <div class="entry__panel-inner">
+            <p class="entry__body">{{ job.description }}</p>
+          </div>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="section" id="endorsements" aria-labelledby="endorsements-title">
+    <div class="section__header">
+      <span class="section__eyebrow">Endorsements</span>
+      <h2 class="section__title" id="endorsements-title">Professional Endorsements</h2>
+    </div>
+    <div class="endorsements">
+      {%- for item in endorsements %}
+      <figure class="endorsement">
+        <blockquote class="endorsement__quote">{{ item.quote }}</blockquote>
+        <figcaption class="endorsement__attribution">{{ item.attribution }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </section>
+</div>
+
+{%- for item in education %}{% if item.award %}
+<dialog class="dialog dialog--prose" id="award-dialog" aria-labelledby="award-dialog-title">
+  <button class="dialog__close" type="button" data-dialog-close>
+    {{ icon("close") }}
+    <span class="visually-hidden">Close</span>
+  </button>
+  <div class="dialog__scroll" data-dialog-scroll>
+    <div class="dialog__body">
+      <h2 class="dialog__title" id="award-dialog-title">{{ item.award.name }}</h2>
+      <p class="dialog__subtitle">{{ item.award.heading }}</p>
+      <p class="dialog__text">{{ item.award.body }}</p>
+    </div>
+  </div>
+</dialog>
+{% endif %}{%- endfor %}

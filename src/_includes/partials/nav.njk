@@ -1,0 +1,31 @@
+{% from "partials/icons.njk" import icon %}
+<nav class="nav" aria-label="Main">
+  <div class="container nav__inner">
+    <div class="nav__menu" data-nav-menu id="nav-menu">
+      <ul class="nav__list">
+        {%- for item in site.nav %}
+        <li>
+          <a
+            class="nav__link"
+            href="{{ item.href }}"
+            {%- if item.hash %} data-nav-hash="{{ item.hash }}"{% endif %}
+            {%- if item.key == "home" and isHome %} data-nav-home{% endif %}
+            {%- if item.key and item.key == navKey %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+
+    <div class="nav__tools">
+      <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+        {{ icon("sun", "theme-toggle__sun") }}
+        {{ icon("moon", "theme-toggle__moon") }}
+      </button>
+
+      <button class="icon-button nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+  </div>
+</nav>

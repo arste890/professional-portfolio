@@ -1,0 +1,38 @@
+{#
+  Inline SVG icon macros.
+
+  Icons are inlined rather than loaded from a sprite or icon font so they
+  inherit `currentcolor`, need no extra request, and carry no text nodes that
+  a screen reader would announce (each is aria-hidden; the surrounding
+  control supplies the accessible name).
+#}
+
+{%- macro icon(name, class = "") -%}
+<svg class="{{ class }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  {%- if name == "sun" -%}
+  <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+  {%- elif name == "moon" -%}
+  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  {%- elif name == "close" -%}
+  <path d="M18 6 6 18M6 6l12 12"/>
+  {%- elif name == "arrow-up" -%}
+  <path d="M12 19V5M5 12l7-7 7 7"/>
+  {%- elif name == "arrow-left" -%}
+  <path d="M19 12H5M12 19l-7-7 7-7"/>
+  {%- elif name == "arrow-right" -%}
+  <path d="M5 12h14M12 5l7 7-7 7"/>
+  {%- elif name == "external" -%}
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>
+  {%- elif name == "github" -%}
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  {%- elif name == "linkedin" -%}
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM6 9H2v12h4z"/><circle cx="4" cy="4" r="2"/>
+  {%- elif name == "play" -%}
+  <path d="M6 3 20 12 6 21V3z" fill="currentColor" stroke="none"/>
+  {%- elif name == "layers" -%}
+  <path d="m12 2 9 5-9 5-9-5 9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/>
+  {%- elif name == "document" -%}
+  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+  {%- endif -%}
+</svg>
+{%- endmacro -%}

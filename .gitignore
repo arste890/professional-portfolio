@@ -66,3 +66,7 @@ target/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Eleventy build output
+_site/
+.cache/

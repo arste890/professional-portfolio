@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Alec R. Stevens">
+  <!-- Garnet tile matching --accent; reads on both light and dark browser chrome. -->
+  <rect width="64" height="64" rx="14" fill="#8f2439"/>
+  <!--
+    The "A" is drawn as vector paths rather than <text> so it renders
+    identically regardless of the fonts installed on the viewer's machine.
+    evenodd punches the counter out of the stroke silhouette.
+  -->
+  <path fill="#fbfaf8" fill-rule="evenodd"
+        d="M32 11 51 53 42.2 53 38.6 44.6 25.4 44.6 21.8 53 13 53 Z
+           M32 24.4 27.6 38.2 36.4 38.2 Z"/>
+</svg>

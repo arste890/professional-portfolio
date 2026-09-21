@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Project cards
+   ========================================================================== */
+
+.projects {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 48em) {
+  .projects {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  }
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.project:hover {
+  border-color: var(--rule-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.project__name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.project__name a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.project__name a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.project__description {
+  flex: 1 1 auto;
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-block-start: var(--space-2);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--rule);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+
+.project__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+}
+
+.project__links a:hover {
+  text-decoration: underline;
+}
+
+.project__links svg {
+  width: 0.9em;
+  height: 0.9em;
+}
